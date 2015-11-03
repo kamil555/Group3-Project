@@ -27,13 +27,13 @@
  - The Facilitator of the week must update task matrix for each meetings
  - Each member must complete their part of the task matrix(record when you completed the project and how long it took you to do it)
 
-How will team members deal with another team member who appears to exercise too much control over the team?
+  How will team members deal with another team member who appears to exercise too much control over the team?
 We will all talk first to the problem person to let them know how the other members are feeling. All effort will be made to rectify the situation without involving the professor. As a last resort we will enlist help.
 
-How will team members deal with another team member who does not appear to be shouldering their responsibilities within the project, or who is not contributing during team meetings?
+  How will team members deal with another team member who does not appear to be shouldering their responsibilities within the project, or who is not contributing during team meetings?
 We will all talk first to the problem person to let them know how the other members are feeling. All effort will be made to rectify the situation without involving the professor. As a last resort we will enlist help.
 
-What will you do if there is inclement weather that prevents one or more group members from traveling on the meeting day/time?
+  What will you do if there is inclement weather that prevents one or more group members from traveling on the meeting day/time?
 If enough advance notice is given we will attempt to reschedule the meeting to a better time. If we cannot then the meeting will continue if at least 2 people can still make it. If no one can make the meeting we will have to try to reschedule so that the maximum number of people can attend. And, if there are no other options we can try to address the same issues that would have been discussed via email.
 
 
