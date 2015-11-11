@@ -3,14 +3,25 @@
 public class Bid {
 //   private int bidCount;
 
-    @Override
+ 
+
+	@Override
 	public String toString() {
-		return "Bid [bidName=" + bidName + ", bidAmount=" + bidAmount + "]";
+		return "Bid [userName=" + userName + ", itemID=" + itemID + ", bidAmount=" + bidAmount + "]";
 	}
 
-	private String bidName;
+	private String userName;
+	private int itemID;
+	public int getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
+	}
+
 	private double bidAmount;
-//  public Bid next; 
+ 
   
     public double getBidAmount() {
 		return bidAmount;
@@ -20,17 +31,19 @@ public class Bid {
 		this.bidAmount = bidAmount;
 	}
 
-	public String getBidName() {
-		return bidName;
+	public String getuserName() {
+		return userName;
 	}
 
-	public void setBidName(String bidName) {
-		this.bidName = bidName;
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
 
-    public Bid(String bidName, double bidAmount) {
+    public Bid(String userName, double bidAmount, int itemID) {
     	super();
     	this.bidAmount = bidAmount;
-    	this.bidName = bidName;
+    	this.userName = userName;
+    	this.itemID = itemID;
+    	
     }
 }

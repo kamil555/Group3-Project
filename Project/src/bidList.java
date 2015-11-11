@@ -1,24 +1,41 @@
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class bidList {
-	static ArrayList<Bid> bid = new ArrayList<Bid>(); 
+	
+	HashMap<Integer, LinkedList<Bid>> itemBidList= new HashMap<Integer, LinkedList<Bid>>();
+	LinkedList<Bid> bidlist = new LinkedList<Bid>();
 	
 	
-	private void addBid(String bidName, double bidAmount) {
-		
-		
-		if(bid.size() == 0) { //start bid
-			bid.add(new Bid(bidName, bidAmount));
-		} 
-		else { 
-			Bid b = (Bid)bid.get(bid.size());
-			if(b.getBidAmount() < bidAmount) { //if the new bid Amount lager than last Amount
-				bid.add(new Bid(bidName, bidAmount)); // then add to list
-			} else { 
-				System.out.println("invalid amount");// else 
-			}
+	
+	public void addBid(int itemNum, Bid bid, Item item) {
+		if( itemBidList.isEmpty() == true && bid.getBidAmount() >= item.startBid) {
+			itemBidList.put(itemNum, bidlist);
+			bidlist.add(bid);
 		}
 	}
+	
+	
+//	static ArrayList<Bid> bid = new ArrayList<Bid>(); 
+//	
+//	
+//	private void addBid(String bidName, double bidAmount) {
+//		
+//		
+//		if(bid.size() == 0) { //start bid
+//			bid.add(new Bid(bidName, bidAmount));
+//		} 
+//		else { 
+//			Bid b = (Bid)bid.get(bid.size());
+//			if(b.getBidAmount() < bidAmount) { //if the new bid Amount lager than last Amount
+//				bid.add(new Bid(bidName, bidAmount)); // then add to list
+//			} else { 
+//				System.out.println("invalid amount");// else 
+//			}
+//		}
+//	}
+	
 	
 //	public static void main(String[] args) { // test
 //		
@@ -27,34 +44,3 @@ public class bidList {
 }
 
 
-
-
-//class bidList {
-//
-//public Bid head;
-//
-//bidList () {
-//head = null;
-//}
-//
-//public boolean isEmpty() {
-//return(head == null);
-//}
-//
-//public void firstBid(double bidAmount, String bidName) {
-//Bid newBid = new Bid(bidAmount, bidName);
-//newBid.next = head;
-//head = newBid;
-//}
-//
-//public Bid removeHead() {
-//Bid linkReference = head;
-//if(!isEmpty()) {
-//head = head.next;
-//} else {
-//System.out.println("No bid");
-//}
-//
-//return linkReference;
-//} 
-//}
