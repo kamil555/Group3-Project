@@ -22,18 +22,6 @@ public class NonProfit {
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		switch(input){
-		case 1:
-			System.out.println("Enter Month(1-12): ");
-			int month = reader.nextInt();
-			System.out.println("Enter Day(Integer): ");
-			int day = reader.nextInt();
-			System.out.println("Enter Year(Integer): ");
-			int year = reader.nextInt();
-			if(checkDate(month,day,year)){
-				
-			}
-		}
 	}
 
 	public void scheduleAuction(User u, Date auctionDate){
@@ -42,7 +30,7 @@ public class NonProfit {
 			System.out.println("Enter Auction Name: ");
 			@SuppressWarnings("resource")
 			Scanner reader = new Scanner(System.in);
-			String name = reader.nextLine();
+			String name = reader.Line();
 			name = name.concat(getDate());
 			System.out.println("Enter Duration of Auction: ");
 			double duration = reader.nextDouble();
@@ -58,38 +46,16 @@ public class NonProfit {
 		//Auction a = new Auction(String profitName, Date auctionDate, double auctionDuration);
 	}
 
-	public void editAuctionIfo(User u,String profitName){
-		/*Calendar c = new Calendar();
-		 *Auction a = c.getAuction(profitName);
-		 *System.out.println("Enter Auction Name: ");
-		 *@SuppressWarnings("resource")
-		 *Scanner reader = new Scanner(System.in);
-		 *String name = reader.Line();
-		 *a.setProfitName(name);
-		 *System.out.println("Enter Duration of Auction: ");
-		 *double duration = reader.nextDouble();
-		 * a.setDuration(duration);
-		 */
+	public void editAuctionIfo(User u,int auctionID){
 
 	}
 
-	public void addItemInfo(User u,String auctionName){
-		/*Calendar c = new Calendar();
-		 *Auction a = c.getAuction(profitName);
-		 *a.addItem()
-		 */
+	public void addItemInfo(User u, int itemID){
+
 	}
 
-	public void editItemInfo(User u,String auctionName){
-		/*Calendar c = new Calendar();
-		 *Auction a = c.getAuction(profitName);
-		 *a.showItems();
-		 *System.out.println("Enter Item to edit: ");
-		 *@SuppressWarnings("resource")
-		 *Scanner reader = new Scanner(System.in);
-		 *int item = reader.nextInt();
-		 *a.getItem(item).edit();
-		 */
+	public void editItemInfo(User u,int itemID){
+
 	}
 
 	private boolean checkDate(int month,int day,int year){

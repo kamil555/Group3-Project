@@ -51,7 +51,7 @@ public class Users{
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while(input != LOGIN && input != CREATE && input != EXIT){
+		while(input != LOGIN && input != CREATE){
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}

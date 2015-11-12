@@ -1,3 +1,2 @@
 Stepan,Bidder
-Andrey,Bidder
 bob,Bidder

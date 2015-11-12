@@ -22,18 +22,6 @@ public class NonProfit {
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		switch(input){
-		case 1:
-			System.out.println("Enter Month(1-12): ");
-			int month = reader.nextInt();
-			System.out.println("Enter Day(Integer): ");
-			int day = reader.nextInt();
-			System.out.println("Enter Year(Integer): ");
-			int year = reader.nextInt();
-			if(checkDate(month,day,year)){
-				
-			}
-		}
 	}
 
 	public void scheduleAuction(User u, Date auctionDate){
@@ -42,7 +30,7 @@ public class NonProfit {
 			System.out.println("Enter Auction Name: ");
 			@SuppressWarnings("resource")
 			Scanner reader = new Scanner(System.in);
-			String name = reader.nextLine();
+			String name = reader.Line();
 			name = name.concat(getDate());
 			System.out.println("Enter Duration of Auction: ");
 			double duration = reader.nextDouble();

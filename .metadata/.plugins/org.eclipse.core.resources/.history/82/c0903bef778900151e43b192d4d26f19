@@ -38,7 +38,6 @@ public class Users{
 	private ArrayList<User> users;
 	private int LOGIN = 1;
 	private int CREATE = 2;
-	private int EXIT = 3;
 	private int BIDDER = 1;
 	private int EMPLOYEE = 2;
 	private int NONPROFIT = 3;
@@ -47,26 +46,24 @@ public class Users{
 		users = new ArrayList<User>();
 		readFileToUser("C:\\Users\\Stepas\\Documents\\TCSS-360\\Project\\src\\Logs.txt");
 		System.out.println("Hello Welcome to AuctionCentral");
-		System.out.println("To Login press 1, To Create User press 2, To Exit press 3");
+		System.out.println("To Login press 1, To Create User press 2");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while(input != LOGIN && input != CREATE && input != EXIT){
+		while(input != LOGIN && input != CREATE){
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		switch(input){
-		case 1:
+		if(input == LOGIN){
 			System.out.println("Enter Username :");
 			String username = reader.next();
 			Login(username);
-			break;
-		case 2:
+		}else if(input == CREATE){
 			System.out.println("Create Username :");
-			String usern = reader.next();
-			while(isOneUserName(usern)){
+			String username = reader.next();
+			while(isOneUserName(username)){
 				System.out.println("Please enter another Username: ");
-				usern = reader.next();
+				username = reader.next();
 			}
 			System.out.println("Press 1 if you are an Bidder, 2 if you are an AuctionCentral Employee, 3 if you are an Nonprofit Organization");
 			int inputUser = reader.nextInt();
@@ -75,16 +72,12 @@ public class Users{
 				inputUser = reader.nextInt();
 			}
 			if(inputUser == BIDDER){
-				createUser(usern,"Bidder");
+				createUser(username,"Bidder");
 			}else if(inputUser == EMPLOYEE){
-				createUser(usern,"ActionCentral Employee");
+				createUser(username,"ActionCentral Employee");
 			}else if(inputUser == NONPROFIT){
-				createUser(usern,"Nonprofit");
+				createUser(username,"Nonprofit");
 			}
-			break;
-		case 3:
-			System.exit(0);
-			break;
 		}
 
 	}

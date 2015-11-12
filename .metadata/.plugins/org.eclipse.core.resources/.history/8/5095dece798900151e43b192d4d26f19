@@ -25,14 +25,8 @@ public class NonProfit {
 		switch(input){
 		case 1:
 			System.out.println("Enter Month(1-12): ");
-			int month = reader.nextInt();
-			System.out.println("Enter Day(Integer): ");
-			int day = reader.nextInt();
-			System.out.println("Enter Year(Integer): ");
-			int year = reader.nextInt();
-			if(checkDate(month,day,year)){
-				
-			}
+			@SuppressWarnings("resource")
+			 name = reader.nextLine();
 		}
 	}
 
