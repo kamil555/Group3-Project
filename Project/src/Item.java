@@ -1,28 +1,22 @@
-/**
- * 
- */
 
-/**
- * @author Stepas
- *
- */
 public class Item {
+	
+	@Override
+	public String toString() {
+		return itemID + "," + startBid + "," + itemName + "," + itemInfo;
+	}
 	int itemID;
+	double startBid;
 	String itemName;
 	String itemInfo;
-	String auctionName;
-	double startBid;
-	
+//	Double winBid;
+//	String winUser;
 	
 	public double getStartBid() {
 		return startBid;
 	}
 	public void setStartBid(double startBid) {
 		this.startBid = startBid;
-	}
-	@Override
-	public String toString() {
-		return "Item [itemID=" + itemID + ", itemName=" + itemName +", Auction Name = "+auctionName+ ", itemInfo=" + itemInfo + "]";
 	}
 	public int getItemID() {
 		return itemID;
@@ -42,16 +36,12 @@ public class Item {
 	public void setItemInfo(String itemInfo) {
 		this.itemInfo = itemInfo;
 	}
-	public Item(int itemID, String itemName, String itemInfo) {
+	public Item(int itemID, double startBid, String itemName, String itemInfo) {
 		super();
-	}
-
-
-	public String getAuctionName() {
-		return auctionName;
-	}
-	public void setAuctionName(String auctionName) {
-		this.auctionName = auctionName;
+		this.itemID = itemID;
+		this.startBid = startBid;
+		this.itemName = itemName;
+		this.itemInfo =itemInfo;
 	}
 	
 

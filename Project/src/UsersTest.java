@@ -26,8 +26,7 @@ public class UsersTest {
 	 */
 	@Test
 	public void testCreateUser() throws IOException {
-		u.createUser("bob", "Bidder");
-		assertTrue(u.Login("bob"));
+		assertTrue(u.createUser("bob", "Bidder"));
 	}
 
 	/**
@@ -36,7 +35,7 @@ public class UsersTest {
 	 */
 	@Test
 	public void testLogin() throws IOException {
-		assertTrue(u.Login("Stepan"));
+		assertTrue(u.Login("Stepa"));
 	}
 
 }
