@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+
+public class Inventory {
+   ArrayList<Item> listofItems = new ArrayList<Item>();
+   
+   public void allItemsAuction(Auction a){
+	   
+   }
+    
+    private void listAllItems() {
+	
+    }
+    
+    private void viewAllitems() {
+	
+    }
+    
+    private void getHighestBid() {
+	
+    }
+
+}

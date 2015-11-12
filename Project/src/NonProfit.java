@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -23,14 +24,14 @@ public class NonProfit {
 		int input = reader.nextInt();
 	}
 	
-	public void scheduleAuction(User u){
-		//Auction a = new Auction();
-		//a.addAuction(User u)
+	public void scheduleAuction(User u, Date auctionDate){
+		//Calendar c = new Calendar();
+		//if(c.isAvaiable(auctionDate)){
+		//
 	}
 	
-	public void addAuctionInfo(User u,int auctionID){
-		//Auction a = new Auction();
-		//a.
+	public void addAuctionInfo(User u,String profitName, Date auctionDate, double auctionDuration){
+		//Auction a = new Auction(String profitName, Date auctionDate, double auctionDuration);
 	}
 	
 	public void editAuctionIfo(User u,int auctionID){

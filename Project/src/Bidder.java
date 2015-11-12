@@ -50,7 +50,7 @@ public class Bidder {
 		if(input == BID){
 			System.out.println("How much do you want to bid? $");
 			int money = reader.nextInt();
-			//Bid a = new Bid(ID,money);
+			//Bid a = new Bid(u,ID,money);
 		}else if(input == MENU){
 			new Bidder(u);
 		}

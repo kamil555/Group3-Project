@@ -1,6 +1,15 @@
 
 
 public class Bid {
+	
+	
+	public Bid(User u,Item i,double money){
+		this.bidName = u.username;
+		this.bidAmount = money;
+		if(i.getStartBid() >= bidAmount){
+			
+		}
+	}
 //   private int bidCount;
 
     @Override

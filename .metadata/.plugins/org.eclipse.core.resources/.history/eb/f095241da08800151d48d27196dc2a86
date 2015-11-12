@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+
+/**
+ * @author Stepas
+ *
+ */
+public class Item {
+
+	/**
+	 * 
+	 */
+	public Item(int ID) {
+		
+	}
+
+}

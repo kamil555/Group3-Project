@@ -15,8 +15,6 @@ import java.util.Scanner;
 class User{
 	//UserName of person
 	protected String username;
-	//Password of person
-	protected String password;
 	//Whether a person is a bidder,employee, or nonprofit
 	protected String user;
 	//If nonprofit, Organization name
@@ -28,9 +26,8 @@ class User{
 	 * @param pass
 	 * @param user
 	 */
-	public User(String username,String pass,String user){
+	public User(String username,String user){
 		this.username = username;
-		this.password = pass;
 		this.user = user;
 	}
 
@@ -60,9 +57,7 @@ public class Users{
 		if(input == LOGIN){
 			System.out.println("Enter Username :");
 			String username = reader.next();
-			System.out.println("Enter Password :");
-			String password = reader.next();
-			Login(username,password);
+			Login(username);
 		}else if(input == CREATE){
 			System.out.println("Create Username :");
 			String username = reader.next();
@@ -70,8 +65,6 @@ public class Users{
 				System.out.println("Please enter another Username: ");
 				username = reader.next();
 			}
-			System.out.println("Create Password :");
-			String password = reader.next();
 			System.out.println("Press 1 if you are an Bidder, 2 if you are an AuctionCentral Employee, 3 if you are an Nonprofit Organization");
 			int inputUser = reader.nextInt();
 			while(inputUser != BIDDER && inputUser != EMPLOYEE && inputUser != NONPROFIT){
@@ -79,11 +72,11 @@ public class Users{
 				inputUser = reader.nextInt();
 			}
 			if(inputUser == BIDDER){
-				createUser(username,password,"Bidder");
+				createUser(username,"Bidder");
 			}else if(inputUser == EMPLOYEE){
-				createUser(username,password,"ActionCentral Employee");
+				createUser(username,"ActionCentral Employee");
 			}else if(inputUser == NONPROFIT){
-				createUser(username,password,"Nonprofit");
+				createUser(username,"Nonprofit");
 			}
 		}
 		
@@ -95,8 +88,8 @@ public class Users{
 	 * @param user
 	 * @throws IOException 
 	 */
-	public boolean createUser(String username,String password,String user) throws IOException{
-		User per = new User(username,password,user);
+	public boolean createUser(String username,String user) throws IOException{
+		User per = new User(username,user);
 		if(per.user.equalsIgnoreCase("nonprofit")){
 			System.out.println("Enter Nonprofit Organization: ");
 			@SuppressWarnings("resource")
@@ -108,7 +101,7 @@ public class Users{
 			}
 		
 		}
-		String contents = ""+username+","+password+","+user;
+		String contents = ""+username+","+user;
 		writeToFile("C:\\Users\\Stepas\\Documents\\TCSS-360\\Project\\src\\Logs.txt",contents);
 		users.add(per);
 		System.out.println("done");
@@ -123,9 +116,9 @@ public class Users{
 	 * @return
 	 * @throws IOException 
 	 */
-	public boolean Login(String username, String password) throws IOException{
+	public boolean Login(String username) throws IOException{
 		for(int i = 0; i < users.size(); i++){
-			if(users.get(i).username.endsWith(username) && users.get(i).password.endsWith(password)){
+			if(users.get(i).username.endsWith(username)){
 				if(users.get(i).user.equalsIgnoreCase("Bidder")){
 					System.out.println("Bidder");
 					//Bidder b = new Bidder();
@@ -196,11 +189,10 @@ public class Users{
 					new BufferedReader(fileReader);
 
 			while((line = bufferedReader.readLine()) != null) {
-				String[] split = line.split(",", 3);
+				String[] split = line.split(",", 2);
 				String username = split[0];
-				String password = split[1];
-				String user = split[2];
-				users.add(new User(username,password,user));
+				String user = split[1];
+				users.add(new User(username,user));
 
 			}   
 			bufferedReader.close();         

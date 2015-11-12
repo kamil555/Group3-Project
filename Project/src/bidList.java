@@ -4,20 +4,8 @@ public class bidList {
 	static ArrayList<Bid> bid = new ArrayList<Bid>(); 
 	
 	
-	private void addBid(String bidName, double bidAmount) {
+	private void addBid(User u,Item i,double amount) {
 		
-		
-		if(bid.size() == 0) { //start bid
-			bid.add(new Bid(bidName, bidAmount));
-		} 
-		else { 
-			Bid b = (Bid)bid.get(bid.size());
-			if(b.getBidAmount() < bidAmount) { //if the new bid Amount lager than last Amount
-				bid.add(new Bid(bidName, bidAmount)); // then add to list
-			} else { 
-				System.out.println("invalid amount");// else 
-			}
-		}
 	}
 	
 //	public static void main(String[] args) { // test
