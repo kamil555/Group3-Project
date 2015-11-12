@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 
 public class Inventory {
-   ArrayList<String> listofItems = new ArrayList<String>();
+   ArrayList<Item> itemList = new ArrayList<Item>();
     
     private void listAllItems() {
 	
