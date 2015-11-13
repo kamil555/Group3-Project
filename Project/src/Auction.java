@@ -17,10 +17,9 @@ public class Auction
 	
 	private String profitName;
 	
-	public Auction(String profitName, Date auctionDate, double auctionDuration)
-	{
+	public Auction(String profitName, Date auctionDate, double auctionDuration){
 		
-		this.auctionName = profitName + auctionDate;
+		this.auctionName = profitName;
 		this.profitName = profitName;
 		this.auctionDate = auctionDate;
 		this.auctionDuration = auctionDuration;

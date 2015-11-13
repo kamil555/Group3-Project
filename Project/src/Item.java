@@ -11,6 +11,7 @@ public class Item {
 	String itemInfo;
 //	Double winBid;
 //	String winUser;
+	public String auctionName;
 	
 	public double getStartBid() {
 		return startBid;
@@ -36,12 +37,24 @@ public class Item {
 	public void setItemInfo(String itemInfo) {
 		this.itemInfo = itemInfo;
 	}
-	public Item(int itemID, double startBid, String itemName, String itemInfo) {
-		super();
+	public Item(double startBid, String itemName, String itemInfo) {
+		//super();
+		this.itemID = getID();
+		this.startBid = startBid;
+		this.itemName = itemName;
+		this.itemInfo =itemInfo;
+	}
+	public Item(int itemID,double startBid, String itemName, String itemInfo) {
+		//super();
 		this.itemID = itemID;
 		this.startBid = startBid;
 		this.itemName = itemName;
 		this.itemInfo =itemInfo;
+	}
+	
+	private int getID(){
+		Inventory i = new Inventory();
+		return i.listofItems.size();
 	}
 	
 
