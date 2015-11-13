@@ -37,6 +37,7 @@ public class bidList {
 	}
 
 	public void editBid(User user, Item item, double bidAmount) throws IOException {
+		System.out.println(Bidlist.size());
 		for(int i =0; i < Bidlist.size(); i++) {
 			if(Bidlist.get(i).getuserName().endsWith(user.username) 
 					&& bidAmount > item.startBid && item.itemID == Bidlist.get(i).getItemID()) {
@@ -48,6 +49,7 @@ public class bidList {
 	}
 
 	public void cancelBid(User user, Item item) throws IOException {
+		
 		for(int i =0; i < Bidlist.size(); i++) {
 			if(Bidlist.get(i).getuserName().equalsIgnoreCase(user.username) && item.itemID == Bidlist.get(i).getItemID()) {
 				Bidlist.remove(i);
