@@ -5,12 +5,14 @@ public class Item {
 	public String toString() {
 		return itemID + "," + startBid + "," + itemName + "," + itemInfo;
 	}
+	
 	int itemID;
 	double startBid;
 	String itemName;
 	String itemInfo;
 //	Double winBid;
 //	String winUser;
+	public String auctionName;
 	
 	public double getStartBid() {
 		return startBid;
@@ -38,10 +40,23 @@ public class Item {
 	}
 	public Item(int itemID, double startBid, String itemName, String itemInfo) {
 		super();
-		this.itemID = itemID;
+		this.itemID = getID();
 		this.startBid = startBid;
 		this.itemName = itemName;
 		this.itemInfo =itemInfo;
+	}
+//	public Item() {
+//		super();
+//		this.itemID = itemID;
+//		this.startBid = startBid;
+//		this.itemName = itemName;
+//		this.itemInfo =itemInfo;
+//	}
+	
+
+	private int getID(){
+		Inventory i = new Inventory();
+		return i.listofItems.size();
 	}
 	
 

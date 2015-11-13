@@ -12,16 +12,18 @@ public class bidList {
 	public bidList() throws IOException{
 		Bidlist = new ArrayList<Bid>();
 
-		readFileToBid("bidlist.txt"); 
+		readFileToBid("Bids.txt"); 
 
 	}
 
-	public void addBid(User user, Item item, double bidAmount) throws IOException {
-		Bid per = new Bid(user.username, item.itemID, bidAmount);
-
-		if(bidAmount >= item.startBid) {
-			String blist = ""+user.username+","+item.itemID+","+bidAmount;
-			writeToFile("bidlist.txt", blist);
+	public void addBid(User user, Bid b) throws IOException {
+		Bid per = new Bid(user.username, b.getItemID(),b.getBidAmount());
+		Inventory i = new Inventory();
+		Item it = i.getItem(b.getItemID());
+		if(b.getBidAmount() >= it.startBid) {
+			Bidlist.add(per);
+			String blist = ""+user.username+","+b.getItemID()+","+b.getBidAmount();
+			writeToFile("Bids.txt", blist);
 		}
 		//		if(item.winBid == null) {
 		//			item.winBid = bidAmount;
@@ -34,29 +36,23 @@ public class bidList {
 		//		}
 	}
 
-	public void editBid(User user, Item item, double bidAmount, int id) throws IOException {
+	public void editBid(User user, Item item, double bidAmount) throws IOException {
 		for(int i =0; i < Bidlist.size(); i++) {
-			if(Bidlist.get(i).getuserName().equalsIgnoreCase(user.username) 
-					&& bidAmount > item.startBid && id == item.itemID) {
+			if(Bidlist.get(i).getuserName().endsWith(user.username) 
+					&& bidAmount > item.startBid && item.itemID == Bidlist.get(i).getItemID()) {
 				Bidlist.get(i).setBidAmount(bidAmount);
-//				clearFile("bidlist.txt");
-//
-//				for(int j=0; j< Bidlist.size();i++ ) {
-//					writeToFile("bidlist.txt", Bidlist.get(j).toString());
-//				}
+				clearFile("Bids.txt");
+				writeAllItemsToFile("Bids.txt");
 			}
 		}
 	}
 
-	public void cancelBid(User user, Item item, int id) throws IOException {
+	public void cancelBid(User user, Item item) throws IOException {
 		for(int i =0; i < Bidlist.size(); i++) {
-			if(Bidlist.get(i).getuserName().endsWith(user.username) &&  id == item.itemID) {
+			if(Bidlist.get(i).getuserName().equalsIgnoreCase(user.username) && item.itemID == Bidlist.get(i).getItemID()) {
 				Bidlist.remove(i);
-				clearFile("bidlist.txt");
-
-				for(int j=0; j< Bidlist.size();i++ ) {
-					writeToFile("bidlist.txt", Bidlist.get(j).toString());
-				}
+				clearFile("Bids.txt");
+				writeAllItemsToFile("Bids.txt");
 			}
 		}
 	}
@@ -80,7 +76,16 @@ public class bidList {
 		PrintWriter pw = new PrintWriter(fw);
 		pw.write(blist+"\r\n");
 		pw.close();
-
+	}
+	
+	private void writeAllItemsToFile(String string) throws IOException {
+		// TODO Auto-generated method stub
+		FileWriter fw = new FileWriter(string);
+		PrintWriter pw = new PrintWriter(fw);
+		for(int i = 0;i< Bidlist.size(); i++){
+			pw.write(Bidlist.get(i)+"\r\n");
+		}
+		pw.close();
 	}
 
 	private void clearFile(String string) throws IOException {
@@ -121,5 +126,3 @@ public class bidList {
 		}
 	}
 }
-
-

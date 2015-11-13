@@ -40,7 +40,6 @@ public class Bid {
 	}
 
 	public Bid(String userName,  int itemID, double bidAmount) {
-		super();
 		this.bidAmount = bidAmount;
 		this.userName = userName;
 		this.itemID = itemID;

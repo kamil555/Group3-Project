@@ -22,38 +22,98 @@ public class NonProfit {
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
+		switch(input){
+		case 1:
+			System.out.println("Enter Month(1-12): ");
+			int month = reader.nextInt();
+			System.out.println("Enter Day(Integer): ");
+			int day = reader.nextInt();
+			System.out.println("Enter Year(Integer): ");
+			int year = reader.nextInt();
+			if(checkDate(month,day,year)){
+				
+			}
+		}
 	}
-	
+
 	public void scheduleAuction(User u, Date auctionDate){
-		//Calendar c = new Calendar();
-		//if(c.isAvaiable(auctionDate)){
-		//
+		/*Calendar c = new Calendar();
+		if(c.isAvaiable(auctionDate)){
+			System.out.println("Enter Auction Name: ");
+			@SuppressWarnings("resource")
+			Scanner reader = new Scanner(System.in);
+			String name = reader.nextLine();
+			name = name.concat(getDate());
+			System.out.println("Enter Duration of Auction: ");
+			double duration = reader.nextDouble();
+			addAuctionInfo(u,name,auctionDate,duration);
+		}else{
+			System.out.println("Sorry cannot Schedule on this Date Please try again");
+			new NonProfit(u);
+		}
+		 */
 	}
-	
+
 	public void addAuctionInfo(User u,String profitName, Date auctionDate, double auctionDuration){
 		//Auction a = new Auction(String profitName, Date auctionDate, double auctionDuration);
 	}
-	
-	public void editAuctionIfo(User u,int auctionID){
-		
+
+	public void editAuctionIfo(User u,String profitName){
+		/*Calendar c = new Calendar();
+		 *Auction a = c.getAuction(profitName);
+		 *System.out.println("Enter Auction Name: ");
+		 *@SuppressWarnings("resource")
+		 *Scanner reader = new Scanner(System.in);
+		 *String name = reader.Line();
+		 *a.setProfitName(name);
+		 *System.out.println("Enter Duration of Auction: ");
+		 *double duration = reader.nextDouble();
+		 * a.setDuration(duration);
+		 */
+
 	}
-	
-	public void addItemInfo(User u, int itemID){
-		
+
+	public void addItemInfo(User u,String auctionName){
+		/*Calendar c = new Calendar();
+		 *Auction a = c.getAuction(profitName);
+		 *a.addItem()
+		 */
 	}
-	
-	public void editItemInfo(User u,int itemID){
-		
+
+	public void editItemInfo(User u,String auctionName){
+		/*Calendar c = new Calendar();
+		 *Auction a = c.getAuction(profitName);
+		 *a.showItems();
+		 *System.out.println("Enter Item to edit: ");
+		 *@SuppressWarnings("resource")
+		 *Scanner reader = new Scanner(System.in);
+		 *int item = reader.nextInt();
+		 *a.getItem(item).edit();
+		 */
 	}
-	
-	private String getDate(){
-		 String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
-			        "August", "September", "October", "November", "December" };
-		Calendar cal = Calendar.getInstance();
-		String month = monthName[cal.get(Calendar.MONTH)];
-		int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
-		int year = cal.get(Calendar.YEAR);
-		return month+"-"+dayOfMonth+"-"+year;
+
+	private boolean checkDate(int month,int day,int year){
+		if(year >= 2015){
+			int[] monthDay = {31,28,31,30,31,31,31,30,31,30,31,30};
+			if(month < 13 && month > 0){
+				if(monthDay[month-1] >= day){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+
+	private String getDate(int month,int day,int year){
+		String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
+				"August", "September", "October", "November", "December" };
+		String mm = monthName[month+1];
+		return mm+"-"+day+"-"+year;
 	}
 
 }

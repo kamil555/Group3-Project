@@ -23,7 +23,6 @@ class User{
 	/**
 	 * Saves a User.
 	 * @param username
-	 * @param pass
 	 * @param user
 	 */
 	public User(String username,String user){
@@ -31,36 +30,44 @@ class User{
 		this.user = user;
 	}
 
+	@Override
+	public String toString() {
+		return username+","+user;
+	}
+	
+	
+
 }
 
 public class Users{
 	//Keeps track of all Users
 	private ArrayList<User> users;
-	private int LOGIN = 1;
-	private int CREATE = 2;
 	private int BIDDER = 1;
 	private int EMPLOYEE = 2;
 	private int NONPROFIT = 3;
 	
 	public Users() throws IOException{
 		users = new ArrayList<User>();
-		readFileToUser("C:\\Users\\Stepas\\Documents\\TCSS-360\\Project\\src\\Logs.txt");
+		readFileToUser("Logs.txt");
 		System.out.println("Hello Welcome to AuctionCentral");
-		System.out.println("To Login press 1, To Create User press 2");
+		System.out.println("To Login press 1, To Create User press 2, To Exit press 3");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while(input != LOGIN && input != CREATE){
+		while(input != 1 && input != 2 && input != 3){
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		if(input == LOGIN){
+		String username = null;
+		switch(input){
+		case 1:
 			System.out.println("Enter Username :");
-			String username = reader.next();
+			username = reader.next();
 			Login(username);
-		}else if(input == CREATE){
+			break;
+		case 2:
 			System.out.println("Create Username :");
-			String username = reader.next();
+			username = reader.next();
 			while(isOneUserName(username)){
 				System.out.println("Please enter another Username: ");
 				username = reader.next();
@@ -78,6 +85,9 @@ public class Users{
 			}else if(inputUser == NONPROFIT){
 				createUser(username,"Nonprofit");
 			}
+		case 3:
+			System.exit(0);
+			break;
 		}
 		
 	}
@@ -181,12 +191,10 @@ public class Users{
 		String line = null;
 		try {
 			// FileReader reads text files in the default encoding.
-			FileReader fileReader = 
-					new FileReader(fileName);
+			FileReader fileReader = new FileReader(fileName);
 
 			// Always wrap FileReader in BufferedReader.
-			BufferedReader bufferedReader = 
-					new BufferedReader(fileReader);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 			while((line = bufferedReader.readLine()) != null) {
 				String[] split = line.split(",", 2);
