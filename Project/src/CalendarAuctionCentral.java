@@ -61,7 +61,7 @@ import java.util.Scanner;
 	 private static int MAX_NP_AUCTIONS_PER_365_DAYS = 1;
 	 
 	 // read file into array list of auctions, will use to construct auctionList, futureAuctionList and pastAuctionList
-	 private ArrayList<Auction> readAuctionsFromFile(String fileName) {
+	 private ArrayList<Auction> readAuctionsFromFile(String fileName) throws ParseException {
 		 String line = null;
 			try {
 				
@@ -76,14 +76,15 @@ import java.util.Scanner;
 
 				while((line = bufferedReader.readLine()) != null) {
 					
-					String[] split = line.split(",", 2);
+					String[] split = line.split(",", 3);
 					String auctionName = split[0];
-					String auctionDuration = split[1];					
+					Date auctionDate = new Date(split[1]);
+					String auctionDuration = split[2];					
 					int duration = Integer.parseInt(auctionDuration);
 					
 					String[] splitName = auctionName.split("-", 2);
 					String nonProfitName = splitName[0];
-					String auctionDate = splitName[1];					
+					
 					
 					auctionList.add(new Auction(nonProfitName, auctionDate, duration));
 		        }
@@ -173,7 +174,7 @@ import java.util.Scanner;
 		 return this.futureAuctionList;
 	}
 	 
-	 public void addFutureAuction(Auction reqAuction, String fileName) throws IOException {
+	 public void addFutureAuction(Auction reqAuction, String fileName) throws IOException, ParseException {
 		 if (checkRequestedAuction(reqAuction)) {
 			 addAuction(this.auctionList, reqAuction, "auctionList");
 			 futureAuctionList.add(reqAuction);
@@ -182,10 +183,10 @@ import java.util.Scanner;
 	 }
 	 
 	 // check if auction meets requirements
-	 public boolean checkRequestedAuction(Auction reqAuction) {
+	 public boolean checkRequestedAuction(Auction reqAuction) throws ParseException {
 		 Date now = new Date();
 		 if (!atMaxFutureAuctions()) {
-			 if (inDateRange(now, reqAuction.getStartDate())) {
+			 if (inDateRange(reqAuction.getAuctionEnd())) {
 				 
 			 }
 			 
