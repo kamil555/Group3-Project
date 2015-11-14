@@ -26,7 +26,7 @@ import java.util.Scanner;
 	 private ArrayList<Auction> futureAuctionList;
 	 private ArrayList<Auction> pastAuctionList;
 	 
-	 // needs to check textFile
+	 // constructor
 	 public Calendar(){
 		 auctionList = new ArrayList<Auction>();
 		 auctionList = readAuctionsFromFile("auctionList.txt");
@@ -63,6 +63,7 @@ import java.util.Scanner;
 	 private static int MAX_AUCTIONS_SAME_DAY = 2;
 	 private static int MAX_HOURS_BTW_AUCTIONS = 2;
 	 private static int MAX_NP_AUCTIONS_PER_365_DAYS = 1;
+	 private static String fileName = "auctionList.txt";
 	 
 	 // read file into array list of auctions, will use to construct auctionList, futureAuctionList and pastAuctionList
 	 private ArrayList<Auction> readAuctionsFromFile(String fileName) {
@@ -116,6 +117,18 @@ import java.util.Scanner;
 			return null;
 	 }
 	 
+	 
+	 /**
+	  * Returns an auction if a nonprofit has one scheduled for the future.
+	  * @param nonProfitName
+	  */
+	 public Auction getAuction(String nonProfitName) {
+		 for(Auction a: this.futureAuctionList) {
+			 if (a.getProfitName()==nonProfitName) return a;
+		 }
+		 System.out.println("No auction found for " + nonProfitName + ".");
+		 return null;
+	 }
 	 	 
 	 private void removeOneAuctionFromFile(Auction auctionToRemove, String fileName) {
 		 for(Auction a: this.auctionList) {
@@ -175,7 +188,8 @@ import java.util.Scanner;
 	 // return array list of future auctions
 	 public ArrayList<Auction> getfutureAuctionList() {
 		 return this.futureAuctionList;
-	}
+	 }
+	 
 	 
 	 public void addFutureAuction(Auction reqAuction, String fileName) throws IOException {
 		 if (checkRequestedAuction(reqAuction)) {
@@ -214,7 +228,7 @@ import java.util.Scanner;
 	 
 	 // no more than 25 auctions may be scheduled into the future
 	 private boolean atMaxFutureAuctions() {
-		return (futureAuctions == MAX_FUTURE_AUCTIONS);
+		return (this.futureAuctions == MAX_FUTURE_AUCTIONS);
 	}
 	 
 	 // an auction may not be more than 90 days from the current date
