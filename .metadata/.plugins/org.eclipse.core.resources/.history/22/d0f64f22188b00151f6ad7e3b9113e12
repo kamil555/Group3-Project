@@ -61,7 +61,7 @@ import java.util.Scanner;
 	 private static int MAX_NP_AUCTIONS_PER_365_DAYS = 1;
 	 
 	 // read file into array list of auctions, will use to construct auctionList, futureAuctionList and pastAuctionList
-	 private ArrayList<Auction> readAuctionsFromFile(String fileName) throws ParseException {
+	 private ArrayList<Auction> readAuctionsFromFile(String fileName) {
 		 String line = null;
 			try {
 				
@@ -76,15 +76,14 @@ import java.util.Scanner;
 
 				while((line = bufferedReader.readLine()) != null) {
 					
-					String[] split = line.split(",", 3);
+					String[] split = line.split(",", 2);
 					String auctionName = split[0];
-					Date auctionDate = new Date(split[1]);
-					String auctionDuration = split[2];					
+					String auctionDuration = split[1];					
 					int duration = Integer.parseInt(auctionDuration);
 					
 					String[] splitName = auctionName.split("-", 2);
 					String nonProfitName = splitName[0];
-					
+					String auctionDate = splitName[1];					
 					
 					auctionList.add(new Auction(nonProfitName, auctionDate, duration));
 		        }
@@ -174,7 +173,7 @@ import java.util.Scanner;
 		 return this.futureAuctionList;
 	}
 	 
-	 public void addFutureAuction(Auction reqAuction, String fileName) throws IOException, ParseException {
+	 public void addFutureAuction(Auction reqAuction, String fileName) throws IOException {
 		 if (checkRequestedAuction(reqAuction)) {
 			 addAuction(this.auctionList, reqAuction, "auctionList");
 			 futureAuctionList.add(reqAuction);
@@ -239,6 +238,8 @@ import java.util.Scanner;
 		 int[] monthDay = {31,28,31,30,31,31,31,30,31,30,31,30};
 		 for(int i = 0; i < monthDay[month-1]; i++){
 			 System.out.println(monthName[month-1]+","+i+", "+year+": ");
+			 
+			 
 			 for(int j = 0; j< auctionList.size(); i++){
 				 if(auctionList.get(j).getAuctionStart().getMonth() == month && auctionList.get(j).getAuctionStart().getDay() == i && auctionList.get(j).getAuctionStart().getYear() == year){
 					 auctionList.get(j).toString();

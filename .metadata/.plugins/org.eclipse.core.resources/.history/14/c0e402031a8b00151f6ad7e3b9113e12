@@ -8,7 +8,8 @@ import java.text.ParseException;
  * @author Mindy Huynh
  *
  */
-public class Auction {
+public class Auction 
+{
 	//auction name
 	private String auctionName;	
 	//auction date
@@ -20,7 +21,7 @@ public class Auction {
 	public Auction(String profitName, Date  auctionStartDate, int auctionDuration) throws ParseException{
 		this.auctionStart = auctionStartDate;
 		Date auctionEnd = auctionStartDate;
-		auctionEnd.addHours(auctionDuration);;
+		auctionEnd.setHour((auctionStartDate.getHour()+auctionDuration));
 		this.auctionEnd = auctionEnd;
 		String date = getDate(auctionStartDate.getMonth(),auctionStartDate.getDay(),auctionStartDate.getYear());
 		this.auctionName = profitName+"-"+date;

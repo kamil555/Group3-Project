@@ -20,7 +20,7 @@ public class Auction {
 	public Auction(String profitName, Date  auctionStartDate, int auctionDuration) throws ParseException{
 		this.auctionStart = auctionStartDate;
 		Date auctionEnd = auctionStartDate;
-		auctionEnd.addHours(auctionDuration);;
+		auctionEnd;
 		this.auctionEnd = auctionEnd;
 		String date = getDate(auctionStartDate.getMonth(),auctionStartDate.getDay(),auctionStartDate.getYear());
 		this.auctionName = profitName+"-"+date;
