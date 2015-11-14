@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -106,13 +107,12 @@ public class Auction
 	}
 	
 	public void writeAuctionToFile(String fileName) throws IOException {
-		 String auctionString = new String();
-		 auctionString = this.toString();
-		 FileWriter fw = new FileWriter(fileName, true);
-		 PrintWriter pw = new PrintWriter(fw);
-		 //fw.append(System.lineSeparator());
-		 pw.write(auctionString + "\r\n");
-		 pw.close();
-	 }
-	
+		String auctionString = new String();
+		auctionString = this.toString();
+		FileWriter fw = new FileWriter(fileName, true);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.write(auctionString + "\r\n");
+		pw.close();		
+	}
+
 }
