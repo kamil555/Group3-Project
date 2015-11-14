@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 
@@ -13,16 +14,25 @@ public class AuctionCentralMain {
 		
 		Date currentDate = new Date();
 		
-		Auction testAuction = new Auction("name11", "2015-11-22-16-30", 1);
-		Auction testAuction2 = new Auction("name22", "2015-1-2-9-0", 2);
 		
+		Auction test1 = new Auction("npname1", "2018-10-22-18-0", 3);
+		Auction test2 = new Auction("npname2", "2017-10-22-18-0", 3);
+		Auction test3 = new Auction("npname3", "2016-10-22-18-0", 3);
+		Auction test4 = new Auction("npname4", "2014-10-22-18-0", 3);
+		Auction test5 = new Auction("npname5", "2013-10-22-18-0", 3);
+		Auction test6 = new Auction("npname6", "2012-10-22-18-0", 3);
 		
 		try {
-			testAuction.writeAuctionToFile("auctionList1.txt");
-			testAuction2.writeAuctionToFile("auctionList1.txt");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			test5.writeAuctionToFile("auctionList.txt");
+			test2.writeAuctionToFile("auctionList.txt");
+			test3.writeAuctionToFile("auctionList.txt");
+			test6.writeAuctionToFile("auctionList.txt");
+			test1.writeAuctionToFile("auctionList.txt");
+			test4.writeAuctionToFile("auctionList.txt");
+		} catch (FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + "auctionList.txt" + "'");
+		} catch (IOException ex) {
+			System.out.println("Error reading file '" + "auctionList.txt" + "'");
 		}
 	}
 }
