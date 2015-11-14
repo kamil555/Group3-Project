@@ -19,8 +19,8 @@ public class Auction {
 	
 	public Auction(String profitName, Date  auctionStartDate, int auctionDuration) throws ParseException{
 		this.auctionStart = auctionStartDate;
-		Date auctionEnd = auctionStartDate;
-		auctionEnd.addHours(auctionDuration);;
+		Date auctionEnd = auctionStartDate.clone();
+		auctionEnd.addHours(auctionDuration);
 		this.auctionEnd = auctionEnd;
 		String date = getDate(auctionStartDate.getMonth(),auctionStartDate.getDay(),auctionStartDate.getYear());
 		this.auctionName = profitName+"-"+date;
@@ -95,7 +95,7 @@ public class Auction {
 	private String getDate(int month,int day,int year){
 		String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
 				"August", "September", "October", "November", "December" };
-		String mm = monthName[month+1];
+		String mm = monthName[month-1];
 		return mm+"-"+day+"-"+year;
 	}
 }

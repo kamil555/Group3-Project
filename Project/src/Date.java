@@ -23,7 +23,6 @@ public class Date {
 	}
 	
 	public Date() {
-		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
 		this.date = cal.get(Calendar.MONTH)+1+"/"
 				+cal.get(Calendar.DAY_OF_MONTH)+"/"
@@ -156,6 +155,10 @@ public class Date {
 				+c.get(Calendar.MINUTE)+":"
 				+c.get(Calendar.SECOND);
 		this.date = newDate;
+	}
+	
+	public Date clone(){
+		return new Date(this.date);
 	}
 	
 	public String toString(){

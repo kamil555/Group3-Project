@@ -174,10 +174,10 @@ import java.util.Scanner;
 		 return this.futureAuctionList;
 	}
 	 
-	 public void addFutureAuction(Auction reqAuction, String fileName) throws IOException, ParseException {
+	 public void addFutureAuction(Auction reqAuction) throws IOException, ParseException {
 		 if (checkRequestedAuction(reqAuction)) {
-			 addAuction(this.auctionList, reqAuction, "auctionList");
-			 futureAuctionList.add(reqAuction);
+			 addAuction(this.auctionList, reqAuction, "auctionList.txt");
+			 //futureAuctionList.add(reqAuction);
 			 futureAuctions += 1;
 		 }
 	 }
@@ -233,15 +233,15 @@ import java.util.Scanner;
 	 // no more than one auction per year per nonprofit organization can be scheduled
 	 
 	 
-	 private void printCalendarMonthly(int month,int year) throws ParseException{
+	 public void printCalendarMonthly(int month,int year) throws ParseException{
 		 String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
 					"August", "September", "October", "November", "December" };
 		 int[] monthDay = {31,28,31,30,31,31,31,30,31,30,31,30};
-		 for(int i = 0; i < monthDay[month-1]; i++){
+		 for(int i = 1; i < monthDay[month-1]+1; i++){
 			 System.out.println(monthName[month-1]+","+i+", "+year+": ");
-			 for(int j = 0; j< auctionList.size(); i++){
+			 for(int j = 0; j< auctionList.size(); j++){
 				 if(auctionList.get(j).getAuctionStart().getMonth() == month && auctionList.get(j).getAuctionStart().getDay() == i && auctionList.get(j).getAuctionStart().getYear() == year){
-					 auctionList.get(j).toString();
+					 System.out.println(auctionList.get(j).toString());
 				 }
 			 }
 		 }
