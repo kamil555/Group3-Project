@@ -22,7 +22,7 @@ public class bidListTest {
 		
 		
 		user = new User("Han","User");
-		item = new Item(1.00, "cake","just an cake");
+		//item = new Item(1.00, "cake","just an cake");
 		bid = new Bid(user.username, 0, 4.2);
 		
 	}

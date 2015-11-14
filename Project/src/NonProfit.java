@@ -1,9 +1,8 @@
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
 /**
- * @author Stepas
+ * @author Stepan Adespya
  *
  */
 public class NonProfit {
@@ -109,11 +108,5 @@ public class NonProfit {
 		}
 	}
 
-	private String getDate(int month,int day,int year){
-		String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
-				"August", "September", "October", "November", "December" };
-		String mm = monthName[month+1];
-		return mm+"-"+day+"-"+year;
-	}
 
 }

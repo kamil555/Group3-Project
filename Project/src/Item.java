@@ -3,7 +3,7 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return itemID + "," + startBid + "," + itemName + "," + itemInfo;
+		return itemID + "," +auctionName+","+ startBid + "," + itemName + "," + itemInfo;
 	}
 	int itemID;
 	double startBid;
@@ -37,16 +37,18 @@ public class Item {
 	public void setItemInfo(String itemInfo) {
 		this.itemInfo = itemInfo;
 	}
-	public Item(double startBid, String itemName, String itemInfo) {
+	public Item(String auctionName,double startBid, String itemName, String itemInfo) {
 		//super();
+		this.auctionName = auctionName;
 		this.itemID = getID();
 		this.startBid = startBid;
 		this.itemName = itemName;
 		this.itemInfo =itemInfo;
 	}
-	public Item(int itemID,double startBid, String itemName, String itemInfo) {
+	public Item(int itemID,String auctionName,double startBid, String itemName, String itemInfo) {
 		//super();
 		this.itemID = itemID;
+		this.auctionName = auctionName;
 		this.startBid = startBid;
 		this.itemName = itemName;
 		this.itemInfo =itemInfo;

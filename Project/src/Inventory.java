@@ -60,14 +60,15 @@ public class Inventory {
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 			while((line = bufferedReader.readLine()) != null) {
-				String[] split = line.split(",", 4);
+				String[] split = line.split(",", 5);
 				String sitemID = split[0];
 				int itemID = Integer.parseInt(sitemID);
-				String start = split[1];
+				String auctionName = split[1];
+				String start = split[2];
 				double startbid = Double.parseDouble(start);
-				String itemName = split[2];
-				String itemInfo = split[3];
-				listofItems.add(new Item(itemID,startbid,itemName,itemInfo));
+				String itemName = split[3];
+				String itemInfo = split[4];
+				listofItems.add(new Item(itemID,auctionName,startbid,itemName,itemInfo));
 			}   
 			bufferedReader.close();         
 		}

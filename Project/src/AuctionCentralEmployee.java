@@ -23,27 +23,30 @@ public class AuctionCentralEmployee {
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		if(input == CALENDAR){
+		switch(input){
+		case 1:
 			viewCalendar();
-		}else if(input == AUCTIONS){
+			break;
+		case 2:
 			viewAuctionDetails();
+			break;
 		}
 		
 	}
 	
 	public void viewAuctionDetails(){
-		//Auction a = new Auction();
-		//a.listAllAuctions();
+		//Calender c = new Calendar();
+		//c.viewFutureAuctions();
 		System.out.println("Enter the aution you want details:");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int auctionID = reader.nextInt();
-		//a.viewAuctionDetails(auctionID);
+		//c.viewAuctionDetails(auctionID);
 	}
 	
 	public void viewCalendar(){
 		//Calendar c = new Calendar();
-		//c.viewCalendar(monthly);
+		//c.viewCalendarMonthly();
 	}
 
 }

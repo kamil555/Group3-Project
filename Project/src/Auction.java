@@ -1,4 +1,9 @@
-import java.util.Date;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  * 
@@ -8,55 +13,92 @@ import java.util.Date;
 public class Auction 
 {
 	//auction name
-	private String auctionName;
-	
+	private String auctionName;	
 	//auction date
-	private Date auctionDate;
-	
-	private double auctionDuration;
-	
-	private String profitName;
-	
-	public Auction(String profitName, Date auctionDate, double auctionDuration){
-		
-		this.auctionName = profitName;
-		this.profitName = profitName;
-		this.auctionDate = auctionDate;
-		this.auctionDuration = auctionDuration;
+	private Date auctionStart;	
+
+	public String getAuctionName() {
+		return auctionName;
 	}
-	
-	public void setProfitName(String profitName)
-	{
-		this.profitName = profitName;
+
+
+	public void setAuctionName(String auctionName) {
+		this.auctionName = auctionName;
 	}
-	
-	public void setDate(Date date)
-	{
-		this.auctionDate = date;
+
+
+	public Date getAuctionStart() {
+		return auctionStart;
 	}
-	
-	public void setDuration(double duration)
-	{
-		this.auctionDuration = duration;
+
+
+	public void setAuctionStart(Date auctionStart) {
+		this.auctionStart = auctionStart;
 	}
-	
-	public String getProfitName()
-	{
-		return profitName;
+
+
+	public Date getAuctionEnd() {
+		return auctionEnd;
 	}
-	
-	public Date getDate()
-	{
-		return auctionDate;
+
+
+	public void setAuctionEnd(Date auctionEnd) {
+		this.auctionEnd = auctionEnd;
 	}
-	
-	public double getDuration()
-	{
+
+
+	public int getAuctionDuration() {
 		return auctionDuration;
 	}
+
+
+	public void setAuctionDuration(int auctionDuration) {
+		this.auctionDuration = auctionDuration;
+	}
+
+
+	public String getProfitName() {
+		return profitName;
+	}
+
+
+	public void setProfitName(String profitName) {
+		this.profitName = profitName;
+	}
+	private Date auctionEnd;	
+	private int auctionDuration;	
+	private String profitName;
 	
-	public String getAuctionName()
-	{
-		return auctionName;
+	public Auction(String profitName, Date  auctionStartDate, int auctionDuration) throws ParseException{
+		this.auctionStart = auctionStartDate;
+		Date auctionEnd = auctionStartDate;
+		auctionEnd.setHour((auctionStartDate.getHour()+auctionDuration));
+		this.auctionEnd = auctionEnd;
+		String date = getDate(auctionStartDate.getMonth(),auctionStartDate.getDay(),auctionStartDate.getYear());
+		this.auctionName = profitName+"-"+date;
+		this.profitName = profitName;
+		this.auctionDuration = auctionDuration;
+	}
+
+	
+	public String toString(){
+		
+		return this.auctionName + ","+this.auctionStart+ ","+ this.auctionDuration;
+	}
+	
+	public void writeAuctionToFile(String fileName) throws IOException {
+		 String auctionString = new String();
+		 auctionString = this.toString();
+		 FileWriter fw = new FileWriter(fileName, true);
+		 PrintWriter pw = new PrintWriter(fw);
+		 //fw.append(System.lineSeparator());
+		 pw.write(auctionString + "\r\n");
+		 pw.close();
+	 }
+	private String getDate(int month,int day,int year){
+		String[] monthName = { "January", "February", "March", "April", "May", "June", "July",
+				"August", "September", "October", "November", "December" };
+		String mm = monthName[month+1];
+		return mm+"-"+day+"-"+year;
 	}
 }
