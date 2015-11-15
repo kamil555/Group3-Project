@@ -61,10 +61,6 @@ public class CalendarAuctionCentral {
 		return this.auctionList;
 	}	 
 	
-	public Auction getFutureAuction(int select){
-		return futureAuctionList.get(select);
-	}
-	
 	public Auction getAuction(User u) throws ParseException, IOException{
 		System.out.println("Select your Auction or Press -1 to go back to main menu:");
 		for(int i = 0; i < auctionList.size(); i++){

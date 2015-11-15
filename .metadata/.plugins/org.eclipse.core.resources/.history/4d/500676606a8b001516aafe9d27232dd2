@@ -1,0 +1,47 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * 
+ */
+
+/**
+ * @author Stepas
+ *
+ */
+public class AuctionCentralEmployeeTest {
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * Test method for {@link AuctionCentralEmployee#AuctionCentralEmployee(User)}.
+	 */
+	@Test
+	public void testAuctionCentralEmployee() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link AuctionCentralEmployee#viewAuctionDetails(User)}.
+	 */
+	@Test
+	public void testViewAuctionDetails() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link AuctionCentralEmployee#viewCalendar(User, int, int)}.
+	 */
+	@Test
+	public void testViewCalendar() {
+		fail("Not yet implemented");
+	}
+
+}

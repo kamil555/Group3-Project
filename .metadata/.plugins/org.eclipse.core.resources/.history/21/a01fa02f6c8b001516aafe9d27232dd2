@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -14,18 +13,16 @@ public class AuctionCentralEmployee {
 	/**
 	 * The Main menu for the AuctionCentral Employee.
 	 * @throws ParseException 
-	 * @throws IOException 
 	 * 
 	 */
-	public AuctionCentralEmployee(User u) throws ParseException, IOException {
+	public AuctionCentralEmployee(User u) throws ParseException {
 		System.out.println("Employee :"+ u.username);
 		System.out.println("Press 1 to view calendar");
 		System.out.println("Press 2 to view Auction Details");
-		System.out.println("Press 3 to view Log out");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while(input != AUCTIONS && input != CALENDAR && input !=3){
+		while(input != AUCTIONS && input != CALENDAR){
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
@@ -40,8 +37,6 @@ public class AuctionCentralEmployee {
 		case 2:
 			viewAuctionDetails(u);
 			break;
-		case 3:
-			new Users();
 		}
 		
 	}
@@ -49,9 +44,8 @@ public class AuctionCentralEmployee {
 	 * Shows the User the details of an up and coming auction.
 	 * @param u
 	 * @throws ParseException
-	 * @throws IOException 
 	 */
-	public void viewAuctionDetails(User u) throws ParseException, IOException{
+	public void viewAuctionDetails(User u) throws ParseException{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		System.out.println("Select Auction(Number) :");
 		c.viewFutureAuctions();
@@ -76,9 +70,8 @@ public class AuctionCentralEmployee {
 	 * @param month
 	 * @param year
 	 * @throws ParseException
-	 * @throws IOException 
 	 */
-	public void viewCalendar(User u,int month, int year) throws ParseException, IOException{
+	public void viewCalendar(User u,int month, int year) throws ParseException{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		c.printCalendarMonthly(month, year);
 		System.out.println("Press 1 to return to main menu");

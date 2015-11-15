@@ -111,7 +111,7 @@ public class Bidder {
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int select = reader.nextInt();
-		Auction a = c.getFutureAuction(select);
+		Auction a = c.futureAuctionList.get(select);
 		Inventory i = new Inventory();
 		System.out.println("Select Item(Number) :");
 		i.allItemsAuction(a);
