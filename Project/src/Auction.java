@@ -98,4 +98,9 @@ public class Auction {
 		String mm = monthName[month-1];
 		return mm+"-"+day+"-"+year;
 	}
+
+
+	public String printDetials() {
+		return "Auction Name = "+ this.auctionName+"Non-Profit Name = "+this.profitName+"Auction Start Date = "+this.auctionStart.toString();
+	}
 }

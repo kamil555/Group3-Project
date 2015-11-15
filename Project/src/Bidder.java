@@ -98,7 +98,6 @@ public class Bidder {
 		i.allItemsAuction(a);
 		select = reader.nextInt();
 		viewItem(u,i.listofItems.get(select));
-		
 	}
 	
 	private void viewItemsBidded(User u) throws IOException{
