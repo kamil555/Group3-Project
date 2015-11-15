@@ -28,8 +28,6 @@ public class NonProfit {
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		CalendarAuctionCentral c;
-		Auction a;
 		switch(input){
 		case 1:
 			System.out.println("Enter Auction Information: ");
@@ -56,8 +54,8 @@ public class NonProfit {
 			}
 			break;
 		case 2:
-			c = new CalendarAuctionCentral();
-			a = c.getAuction(u);
+			CalendarAuctionCentral c = new CalendarAuctionCentral();
+			Auction a = c.getAuction(u);
 			this.editAuctionIfo(u, a);
 			break;
 		case 3:
@@ -69,13 +67,10 @@ public class NonProfit {
 			c = new CalendarAuctionCentral();
 			a = c.getAuction(u);
 			Inventory i = new Inventory();
-			i.allItemsAuction(a);
-			System.out.println("Enter the Number of item you want to edit");
-			int item = reader.nextInt();
-			this.editItemInfo(u, item);
+			
 			break;
 		case 5:
-			new Users();
+
 			break;
 		default:
 			System.out.println("Sorry wrong input");
@@ -183,38 +178,16 @@ public class NonProfit {
 		System.out.println("Item can now be bidded on");
 	}
 
-	public void editItemInfo(User u,int itemID) throws IOException{
-		System.out.println("Press 1 to edit Item Name");
-		System.out.println("Press 2 to edit Start Bid");
-		System.out.println("Press 3 to edit Item Info");
-		@SuppressWarnings("resource")
-		Scanner reader = new Scanner(System.in);
-		int input = reader.nextInt();
-		while(input != 1 && input != 2 && input != 3){
-			System.out.println("Sorry wrong input, Please try again");
-			input = reader.nextInt();
-		}
-		Inventory i;
-		switch(input){
-		case 1:
-			System.out.println("Enter New name :");
-			String newName = reader.nextLine();
-			i = new Inventory();
-			i.editItemName(itemID, newName);
-			break;
-		case 2:
-			System.out.println("Enter New start Bid :");
-			double startBid = reader.nextDouble();
-			i = new Inventory();
-			i.editItemStartBid(itemID, startBid);
-			break;
-		case 3:
-			System.out.println("Enter New Info :");
-			String newInfo = reader.nextLine();
-			i = new Inventory();
-			i.editItemInfo(itemID, newInfo);
-			break;
-		}
+	public void editItemInfo(User u,Auction a){
+		/*Calendar c = new Calendar();
+		 *Auction a = c.getAuction(profitName);
+		 *a.showItems();
+		 *System.out.println("Enter Item to edit: ");
+		 *@SuppressWarnings("resource")
+		 *Scanner reader = new Scanner(System.in);
+		 *int item = reader.nextInt();
+		 *a.getItem(item).edit();
+		 */
 	}
 
 	private String getAuctionName(User u,Date d) throws ParseException{

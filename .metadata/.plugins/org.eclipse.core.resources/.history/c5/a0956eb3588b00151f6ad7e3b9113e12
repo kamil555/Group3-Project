@@ -28,8 +28,6 @@ public class NonProfit {
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		CalendarAuctionCentral c;
-		Auction a;
 		switch(input){
 		case 1:
 			System.out.println("Enter Auction Information: ");
@@ -56,8 +54,8 @@ public class NonProfit {
 			}
 			break;
 		case 2:
-			c = new CalendarAuctionCentral();
-			a = c.getAuction(u);
+			CalendarAuctionCentral c = new CalendarAuctionCentral();
+			Auction a = c.getAuction(u);
 			this.editAuctionIfo(u, a);
 			break;
 		case 3:
@@ -72,10 +70,10 @@ public class NonProfit {
 			i.allItemsAuction(a);
 			System.out.println("Enter the Number of item you want to edit");
 			int item = reader.nextInt();
-			this.editItemInfo(u, item);
+			i.listofItems.get(item);
 			break;
 		case 5:
-			new Users();
+
 			break;
 		default:
 			System.out.println("Sorry wrong input");
@@ -183,7 +181,7 @@ public class NonProfit {
 		System.out.println("Item can now be bidded on");
 	}
 
-	public void editItemInfo(User u,int itemID) throws IOException{
+	public void editItemInfo(User u,Auction a){
 		System.out.println("Press 1 to edit Item Name");
 		System.out.println("Press 2 to edit Start Bid");
 		System.out.println("Press 3 to edit Item Info");
@@ -194,25 +192,15 @@ public class NonProfit {
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		Inventory i;
 		switch(input){
 		case 1:
-			System.out.println("Enter New name :");
-			String newName = reader.nextLine();
-			i = new Inventory();
-			i.editItemName(itemID, newName);
+			
 			break;
 		case 2:
-			System.out.println("Enter New start Bid :");
-			double startBid = reader.nextDouble();
-			i = new Inventory();
-			i.editItemStartBid(itemID, startBid);
+			
 			break;
 		case 3:
-			System.out.println("Enter New Info :");
-			String newInfo = reader.nextLine();
-			i = new Inventory();
-			i.editItemInfo(itemID, newInfo);
+			
 			break;
 		}
 	}
