@@ -1,0 +1,13 @@
+import java.io.IOException;
+
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		User u1 = new User("Andrey","Bidder");
+		System.out.println();
+		Item i = new Item(5.0,"pencil","Special pencil");
+
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class TestDate {
+
+	public static void main(String[] args) {
+		Date d = new Date("11/14/2015 12:19:38");
+		System.out.println(get);
+
+	}
+
+}

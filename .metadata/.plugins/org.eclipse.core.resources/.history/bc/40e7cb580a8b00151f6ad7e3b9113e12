@@ -1,0 +1,101 @@
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+/**
+ * 
+ */
+
+/**
+ * @author Stepas
+ *
+ */
+public class Date {
+	
+	public String date;
+
+	/**
+	 * 
+	 */
+	public Date(String date) {
+		this.date = date;
+	}
+	
+	public int getMonth(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.MONTH);
+	}
+	public int getDay(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.DAY_OF_MONTH);
+	}
+	public int getYear(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.YEAR);
+	}
+	
+	public int setHour(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.HOUR);
+	}
+	public int getMinutes(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.MINUTE);
+	}
+	public int getSeconds(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.SECOND);
+	}
+	
+	public String setMonth(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.MONTH);
+	}
+	public String setDay(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.DAY_OF_MONTH);
+	}
+	public String setYear(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.YEAR);
+	}
+	
+	public String setHour(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.HOUR);
+	}
+	public String setMinutes(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.MINUTE);
+	}
+	public String setSeconds(String auctionDate) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(auctionDate));
+		return c.get(Calendar.SECOND);
+	}
+
+}

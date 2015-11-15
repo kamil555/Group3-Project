@@ -1,0 +1,71 @@
+import java.util.Date;
+
+/**
+ * 
+ * @author Mindy Huynh
+ *
+ */
+public class Auction 
+{
+	//auction name
+	private String auctionName;
+	
+	//auction start
+	private Date auctionStart;
+	//auction end
+	private Date auctionEnd;
+	
+	private long auctionDuration;
+	
+	private String profitName;
+	
+	public Auction(String profitName, Date auctionStart,Date auctionEnd, long auctionDuration){
+		
+		this.auctionName = profitName;
+		this.profitName = profitName;
+		this.auctionStart = auctionStart;
+		this.auctionEnd = auctionEnd;
+		this.auctionDuration = auctionDuration;
+	}
+
+	public String getAuctionName() {
+		return auctionName;
+	}
+
+	public void setAuctionName(String auctionName) {
+		this.auctionName = auctionName;
+	}
+
+	public Date getAuctionStart() {
+		return auctionStart;
+	}
+
+	public void setAuctionStart(Date auctionStart) {
+		this.auctionStart = auctionStart;
+	}
+
+	public Date getAuctionEnd() {
+		return auctionEnd;
+	}
+
+	public void setAuctionEnd(Date auctionEnd) {
+		this.auctionEnd = auctionEnd;
+	}
+
+	public long getAuctionDuration() {
+		return auctionDuration;
+	}
+
+	public void setAuctionDuration(long auctionDuration) {
+		this.auctionDuration = auctionDuration;
+	}
+
+	public String getProfitName() {
+		return profitName;
+	}
+
+	public void setProfitName(String profitName) {
+		this.profitName = profitName;
+	}
+	
+}
