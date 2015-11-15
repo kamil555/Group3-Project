@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -30,13 +29,25 @@ public class NonProfit {
 			System.out.println("Enter Year(Integer): ");
 			int year = reader.nextInt();
 			if(checkDate(month,day,year)){
-				
+				System.out.println("Enter Hour Auction to Start(0-23): ");
+				int hour = reader.nextInt();
+				System.out.println("Enter Minute Auction to Start(0-59): ");
+				int minute = reader.nextInt();
+				System.out.println("Enter Second Auction to Start(0-59): ");
+				int second = reader.nextInt();
+				System.out.println("Enter the Duration(Hours): ");
+				int duration = reader.nextInt();
+				String requestday = month+"/"+day+"/"+year+" "+hour+":"+minute+":"+second;
+				Date request = new Date(requestday);
+				scheduleAuction(u,request);
+			}else{
+				System.out.println("Invalid Date");
 			}
 		}
 	}
 
 	public void scheduleAuction(User u, Date auctionDate){
-		/*Calendar c = new Calendar();
+		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		if(c.isAvaiable(auctionDate)){
 			System.out.println("Enter Auction Name: ");
 			@SuppressWarnings("resource")
@@ -50,7 +61,6 @@ public class NonProfit {
 			System.out.println("Sorry cannot Schedule on this Date Please try again");
 			new NonProfit(u);
 		}
-		 */
 	}
 
 	public void addAuctionInfo(User u,String profitName, Date auctionDate, double auctionDuration){

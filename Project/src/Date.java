@@ -114,20 +114,41 @@ public class Date {
 		this.date = newDate;
 	}
 	public boolean before(Date d) throws ParseException{
-		if(this.getYear() >= d.getYear()){
-			if(this.getMonth() >= d.getMonth()){
-				if(this.getDay() >= d.getDay()){
-					if(this.getHour() >= d.getHour()){
-						if(this.getMinutes() >= d.getMinutes()){
-							if(this.getSeconds() > d.getSeconds()){
+		if(this.getYear() < d.getYear()){
+			return true;
+		}else if(this.getYear() == d.getYear()){
+			if(this.getMonth() < d.getMonth()){
+				return true;
+			}else if(this.getMonth() == d.getMonth()){
+				if(this.getDay() < d.getDay()){
+					return true;
+				}else if(this.getDay() == d.getDay()){
+					if(this.getHour() < d.getHour()){
+						return true;
+					}else if(this.getHour() == d.getHour()){
+						if(this.getMinutes() < d.getMinutes()){
+							return true;
+						}else if(this.getMinutes() == d.getMinutes()){
+							if(this.getSeconds() < d.getSeconds()){
+								return true;	
+							}else{
 								return false;
 							}
+						}else{
+							return false;
 						}
+					}else{
+						return false;
 					}
+				}else{
+					return false;
 				}
+			}else{
+				return false;
 			}
+		}else{
+			return false;
 		}
-		return true;
 	}
 	public void addDays(int days) throws ParseException{
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");

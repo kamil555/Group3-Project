@@ -4,6 +4,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +21,7 @@ class User{
 	protected String user;
 	//If nonprofit, Organization name
 	protected String organization;
-	
+
 	/**
 	 * Saves a User.
 	 * @param username
@@ -31,11 +33,14 @@ class User{
 	}
 
 	@Override
+	/**
+	 * overrides the toString method
+	 */
 	public String toString() {
 		return username+","+user;
 	}
-	
-	
+
+
 
 }
 
@@ -45,10 +50,15 @@ public class Users{
 	private int BIDDER = 1;
 	private int EMPLOYEE = 2;
 	private int NONPROFIT = 3;
-	
+
+	/**
+	 * Users constructor, allows user to login or create account.
+	 * @throws IOException
+	 */
 	public Users() throws IOException{
 		users = new ArrayList<User>();
-		readFileToUser("Logs.txt");
+		readFileToUsers("Logs.txt");
+		readFileToOrg("NonProfit.txt");
 		System.out.println("Hello Welcome to AuctionCentral");
 		System.out.println("To Login press 1, To Create User press 2, To Exit press 3");
 		@SuppressWarnings("resource")
@@ -69,7 +79,7 @@ public class Users{
 			System.out.println("Create Username :");
 			username = reader.next();
 			while(isOneUserName(username)){
-				System.out.println("Please enter another Username: ");
+				System.out.println("This Username is taken, please enter another Username: ");
 				username = reader.next();
 			}
 			System.out.println("Press 1 if you are an Bidder, 2 if you are an AuctionCentral Employee, 3 if you are an Nonprofit Organization");
@@ -89,7 +99,7 @@ public class Users{
 			System.exit(0);
 			break;
 		}
-		
+
 	}
 	/**
 	 * Creates a User.
@@ -109,16 +119,20 @@ public class Users{
 				System.out.println("Please enter another organization name :");
 				np = reader.nextLine();
 			}
-		
+			per.organization = np;
+			String org = username+","+np;
+			writeToFile("NonProfit.txt",org);
+
+
 		}
 		String contents = ""+username+","+user;
-		writeToFile("C:\\Users\\Stepas\\Documents\\TCSS-360\\Project\\src\\Logs.txt",contents);
+		writeToFile("Logs.txt",contents);
 		users.add(per);
 		System.out.println("done");
 		new Users();
 		return true;
 	}
-	
+
 	/**
 	 * Login for users.
 	 * @param username
@@ -130,16 +144,13 @@ public class Users{
 		for(int i = 0; i < users.size(); i++){
 			if(users.get(i).username.endsWith(username)){
 				if(users.get(i).user.equalsIgnoreCase("Bidder")){
-					System.out.println("Bidder");
-					//Bidder b = new Bidder();
+					Bidder b = new Bidder(users.get(i));
 					break;
 				}else if(users.get(i).user.equalsIgnoreCase("AuctionCentral Employee")){
-					System.out.println("AuctionCentral Employee");
-					//ActionCentralEmployee a = new ActionCentralEmployee();
+					AuctionCentralEmployee a = new AuctionCentralEmployee(users.get(i));
 					break;
 				}else if(users.get(i).user.equalsIgnoreCase("nonprofit")){
-					System.out.println("Nonprofit");
-					//NonProfit p = new NonProfit();
+					NonProfit p = new NonProfit(users.get(i));
 					break;
 				}
 			}
@@ -149,10 +160,10 @@ public class Users{
 			}
 		}
 		return true;
-		
-		
+
+
 	}
-	
+
 	/**
 	 * Checks to see if anyone else has the same organization name. BR #7
 	 * @param org (Organization name)
@@ -160,14 +171,16 @@ public class Users{
 	 */
 	private boolean isOnePerOrg(String org){
 		for(int i = 0; i < users.size(); i++){
-			if(users.get(i).organization.equalsIgnoreCase(org)){
-				System.out.println("Sorry only one person can represent the Nonprofit Organization");
-				return true;
+			if(users.get(i).organization != null){
+				if(users.get(i).organization.equalsIgnoreCase(org)){
+					System.out.println("Sorry only one person can represent the Nonprofit Organization");
+					return true;
+				}
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Checks if there is the same username
 	 * @param username
@@ -182,12 +195,12 @@ public class Users{
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Reads the file selected to User arraylist
+	 * Reads the file selected to Users arraylist
 	 * @param fileName
 	 */
-	private void readFileToUser(String fileName){
+	private void readFileToUsers(String fileName){
 		String line = null;
 		try {
 			// FileReader reads text files in the default encoding.
@@ -212,7 +225,41 @@ public class Users{
 			System.out.println("Error reading file '" + fileName + "'");                  
 		}
 	}
-	
+
+	/**
+	 * Reads the file for nonprofit organizations
+	 * @param fileName
+	 */
+	private void readFileToOrg(String fileName){
+		String line = null;
+		try {
+			// FileReader reads text files in the default encoding.
+			FileReader fileReader = new FileReader(fileName);
+
+			// Always wrap FileReader in BufferedReader.
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+			while((line = bufferedReader.readLine()) != null) {
+				String[] split = line.split(",", 2);
+				String username = split[0];
+				String orgname = split[1];
+				for(int i = 0;i<users.size(); i++){
+					if(users.get(i).username.equalsIgnoreCase(username)){
+						users.get(i).organization = orgname;
+					}
+				}
+
+			}   
+			bufferedReader.close();         
+		}
+		catch(FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");                
+		}
+		catch(IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");                  
+		}
+	}
+
 	/**
 	 * Writes in the file chosen(use for logs)
 	 * @param fileName
@@ -222,7 +269,11 @@ public class Users{
 	private void writeToFile(String fileName,String contents) throws IOException{
 		FileWriter fw = new FileWriter(fileName,true);
 		PrintWriter pw = new PrintWriter(fw);
-		pw.write(contents+"\r\n");
+		if(Files.size(Paths.get(fileName)) == 0){
+			pw.write(contents);
+		}else{
+			pw.write("\n"+contents);
+		}
 		pw.close();
 	}
 }

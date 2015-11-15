@@ -205,7 +205,31 @@ import java.util.Scanner;
 	 
 	 
 	 // no more than 5 auctions in a rolling 7 day period
-	 
+	 public boolean atMaxAuctions7day(Date requestedDate) throws ParseException{
+		 int jobsAfter;
+		 int jobsBefore;
+		 
+		 Date tempA = requestedDate.clone();
+		 Date tempB = requestedDate.clone();
+		 for(int i = 0; i < 7; i++){
+			 tempA.addDays(1);
+			 tempB.addDays(-1);
+			 for(int j = 0; j< auctionList.size(); j++){
+				 if(auctionList.get(j).getAuctionStart().getMonth() == tempA.getMonth() && auctionList.get(j).getAuctionStart().getDay() == tempA.getDay() && auctionList.get(j).getAuctionStart().getYear() == tempA.getYear()){
+					 jobsAfter++;
+				 }
+				 if(auctionList.get(j).getAuctionStart().getMonth() == tempB.getMonth() && auctionList.get(j).getAuctionStart().getDay() == tempB.getDay() && auctionList.get(j).getAuctionStart().getYear() == tempB.getYear()){
+					 jobsBefore++;
+				 }
+			 }
+		 }
+		 if(jobsAfter > 5 || jobsBefore > 5){
+			 return false;
+		 }else{
+			 return true;
+		 }
+		 
+	 }
 	 
 	 // no more than 25 auctions may be scheduled into the future
 	 private boolean atMaxFutureAuctions() {
