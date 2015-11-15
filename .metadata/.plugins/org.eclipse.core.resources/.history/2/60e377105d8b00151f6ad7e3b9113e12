@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author Gabrielle Glynn and Stepan Adespya
+ * @author Gabrielle Glynn
  * @since November 8, 2015
  * @updated November 14, 2015
  */

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * @author Stepan Adespya
- * @since November 5, 2015
+ *
  */
 public class AuctionCentralEmployee {
 	private int CALENDAR = 1;
@@ -11,7 +11,6 @@ public class AuctionCentralEmployee {
 	
 
 	/**
-	 * The Main menu for the AuctionCentral Employee.
 	 * @throws ParseException 
 	 * 
 	 */
@@ -40,11 +39,7 @@ public class AuctionCentralEmployee {
 		}
 		
 	}
-	/**
-	 * Shows the User the details of an up and coming auction.
-	 * @param u
-	 * @throws ParseException
-	 */
+	
 	public void viewAuctionDetails(User u) throws ParseException{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		System.out.println("Select Auction(Number) :");
@@ -64,13 +59,7 @@ public class AuctionCentralEmployee {
 			new AuctionCentralEmployee(u);
 		}
 	}
-	/**
-	 * Show the User a monthly calendar of auctions.
-	 * @param u
-	 * @param month
-	 * @param year
-	 * @throws ParseException
-	 */
+	
 	public void viewCalendar(User u,int month, int year) throws ParseException{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		c.printCalendarMonthly(month, year);

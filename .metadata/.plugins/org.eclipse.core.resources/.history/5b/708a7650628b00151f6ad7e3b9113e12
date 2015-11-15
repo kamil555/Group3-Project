@@ -3,14 +3,12 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 /**
- * 
  * @author Stepan Adespya
  * @since November 5, 2015
  */
 public class Bidder {
 
 	/**
-	 * Main menu for the Bidder User
 	 * @throws IOException 
 	 * @throws ParseException 
 	 * 
@@ -54,13 +52,7 @@ public class Bidder {
 		}
 		
 	}
-	/**
-	 * Lets you bid on a given item.
-	 * @param u
-	 * @param i
-	 * @throws IOException
-	 * @throws ParseException
-	 */
+	
 	public void viewItem(User u,Item i) throws IOException, ParseException{
 		System.out.println(i.toString());
 		System.out.println("Press 1 to Bid");
@@ -87,23 +79,12 @@ public class Bidder {
 			break;
 		}
 	}
-	/**
-	 * Allows you to change your bid on a given item.
-	 * @param u
-	 * @param i
-	 * @param money
-	 * @throws IOException
-	 */
+	
 	public void editBid(User u,Item i,double money) throws IOException{
 		bidList b = new bidList();
 		b.editBid(u, i , money);
 	}
-	/**
-	 * Shows the User all open auctions.
-	 * @param u
-	 * @throws ParseException
-	 * @throws IOException
-	 */
+	
 	public void viewOpenAuctions(User u) throws ParseException, IOException{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		System.out.println("Select Auction(Number) :");
@@ -118,11 +99,7 @@ public class Bidder {
 		select = reader.nextInt();
 		viewItem(u,i.listofItems.get(select));
 	}
-	/**
-	 * Shows the all the Users bided items.
-	 * @param u
-	 * @throws IOException
-	 */
+	
 	private void viewItemsBidded(User u) throws IOException{
 		Inventory i = new Inventory();
 		i.allItemsBidder(u);
