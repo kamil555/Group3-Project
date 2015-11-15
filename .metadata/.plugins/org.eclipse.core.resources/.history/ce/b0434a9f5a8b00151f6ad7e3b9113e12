@@ -18,7 +18,7 @@ public class CalendarAuctionCentral {
 
 	private int futureAuctions;
 	private ArrayList<Auction> auctionList;
-	ArrayList<Auction> futureAuctionList;
+	private ArrayList<Auction> futureAuctionList;
 	private ArrayList<Auction> pastAuctionList;
 
 	// needs to check textFile

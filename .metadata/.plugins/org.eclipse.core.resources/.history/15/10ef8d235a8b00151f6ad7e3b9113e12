@@ -27,7 +27,8 @@ public class Bidder {
 		}
 		switch(input){
 		case 1:
-			viewOpenAuctions(u);
+			viewOpenAuctions();
+			
 			break;
 		case 2:
 			viewItemsBidded(u);
@@ -68,9 +69,8 @@ public class Bidder {
 		case 1:
 			System.out.println("How much do you want to bid? $");
 			double money = reader.nextDouble();
-			Bid b = new Bid(u.username,i.itemID,money);
-			bidList bl = new bidList();
-			bl.addBid(u, b);
+			//bidList a = new bidList();
+			//a.addBid(.......);
 			System.out.println("Bid entered");
 			new Bidder(u);
 			break;
@@ -85,20 +85,9 @@ public class Bidder {
 		b.editBid(u, i , money);
 	}
 	
-	public void viewOpenAuctions(User u) throws ParseException, IOException{
-		CalendarAuctionCentral c = new CalendarAuctionCentral();
-		System.out.println("Select Auction(Number) :");
-		c.viewFutureAuctions();
-		@SuppressWarnings("resource")
-		Scanner reader = new Scanner(System.in);
-		int select = reader.nextInt();
-		Auction a = c.futureAuctionList.get(select);
-		Inventory i = new Inventory();
-		System.out.println("Select Item(Number) :");
-		i.allItemsAuction(a);
-		select = reader.nextInt();
-		viewItem(u,i.listofItems.get(select));
-		
+	public void viewOpenAuctions(){
+		//Calendar c = new Calendar();
+		//c.viewFuturAuctions();
 	}
 	
 	private void viewItemsBidded(User u) throws IOException{

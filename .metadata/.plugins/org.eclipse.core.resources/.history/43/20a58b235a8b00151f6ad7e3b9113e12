@@ -18,7 +18,7 @@ public class CalendarAuctionCentral {
 
 	private int futureAuctions;
 	private ArrayList<Auction> auctionList;
-	ArrayList<Auction> futureAuctionList;
+	private ArrayList<Auction> futureAuctionList;
 	private ArrayList<Auction> pastAuctionList;
 
 	// needs to check textFile
@@ -377,13 +377,6 @@ public class CalendarAuctionCentral {
 		PrintWriter pw = new PrintWriter(fw);
 		pw.write(auctionString + "\r\n");
 		pw.close();
-	}
-
-	public void viewFutureAuctions() {
-		for(int i = 0; i < futureAuctionList.size();i++){
-			System.out.println(i+") "+futureAuctionList.get(i).toString());
-		}
-		
 	}
 
 
