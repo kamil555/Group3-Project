@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -54,8 +55,9 @@ public class Users{
 	/**
 	 * Users constructor, allows user to login or create account.
 	 * @throws IOException
+	 * @throws ParseException 
 	 */
-	public Users() throws IOException{
+	public Users() throws IOException, ParseException{
 		users = new ArrayList<User>();
 		readFileToUsers("Logs.txt");
 		readFileToOrg("NonProfit.txt");
@@ -95,6 +97,7 @@ public class Users{
 			}else if(inputUser == NONPROFIT){
 				createUser(username,"Nonprofit");
 			}
+			break;
 		case 3:
 			System.exit(0);
 			break;
@@ -107,8 +110,9 @@ public class Users{
 	 * @param pass
 	 * @param user
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
-	public boolean createUser(String username,String user) throws IOException{
+	public boolean createUser(String username,String user) throws IOException, ParseException{
 		User per = new User(username,user);
 		if(per.user.equalsIgnoreCase("nonprofit")){
 			System.out.println("Enter Nonprofit Organization: ");
@@ -139,8 +143,10 @@ public class Users{
 	 * @param password
 	 * @return
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
-	public boolean Login(String username) throws IOException{
+	@SuppressWarnings("unused")
+	public boolean Login(String username) throws IOException, ParseException{
 		for(int i = 0; i < users.size(); i++){
 			if(users.get(i).username.endsWith(username)){
 				if(users.get(i).user.equalsIgnoreCase("Bidder")){

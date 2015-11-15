@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 
@@ -49,8 +50,7 @@ public class Date {
 		Calendar c = Calendar.getInstance();
 		c.setTime(df.parse(date));
 		return c.get(Calendar.YEAR);
-	}
-	
+	}	
 	public int getHour() throws ParseException{
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Calendar c = Calendar.getInstance();
@@ -91,7 +91,6 @@ public class Date {
 		String newDate = this.getMonth()+"/"+this.getDay()+"/"+year+" "+this.getHour()+":"+this.getMinutes()+":"+this.getSeconds();
 		this.date = newDate;
 	}
-	
 	public void setHour(int hour) throws ParseException{
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Calendar c = Calendar.getInstance();
@@ -113,6 +112,26 @@ public class Date {
 		String newDate = this.getMonth()+"/"+this.getDay()+"/"+this.getYear()+" "+this.getHour()+":"+this.getMinutes()+":"+seconds;
 		this.date = newDate;
 	}
+	
+	public long getDiffHours(Date d) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(this.date));
+		Calendar c1 = Calendar.getInstance();
+		c1.setTime(df.parse(d.date));
+		long diff =  c1.getTimeInMillis() - c.getTimeInMillis();
+		return TimeUnit.HOURS.convert(diff, TimeUnit.MILLISECONDS);
+	}
+	public long getDiffDay(Date d) throws ParseException{
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		c.setTime(df.parse(this.date));
+		Calendar c1 = Calendar.getInstance();
+		c1.setTime(df.parse(d.date));
+		long diff =  c1.getTimeInMillis() - c.getTimeInMillis();
+		return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+	}
+	
 	public boolean before(Date d) throws ParseException{
 		if(this.getYear() < d.getYear()){
 			return true;
@@ -150,6 +169,7 @@ public class Date {
 			return false;
 		}
 	}
+	
 	public void addDays(int days) throws ParseException{
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Calendar c = Calendar.getInstance();
@@ -163,7 +183,6 @@ public class Date {
 				+c.get(Calendar.SECOND);
 		this.date = newDate;
 	}
-	
 	public void addHours(int hours) throws ParseException{
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 		Calendar c = Calendar.getInstance();

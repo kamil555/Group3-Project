@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 /**
@@ -9,9 +10,10 @@ public class Bidder {
 
 	/**
 	 * @throws IOException 
+	 * @throws ParseException 
 	 * 
 	 */
-	public Bidder(User u) throws IOException {
+	public Bidder(User u) throws IOException, ParseException {
 		System.out.println("Welcome :" + u.username);
 		System.out.println("Press 1 to see availiable auctions");
 		System.out.println("Press 2 to see bidded items");
@@ -52,7 +54,7 @@ public class Bidder {
 		
 	}
 	
-	public void viewItem(User u,Item i) throws IOException{
+	public void viewItem(User u,Item i) throws IOException, ParseException{
 		System.out.println(i.toString());
 		System.out.println("Press 1 to Bid");
 		System.out.println("Press 2 to go back to menu");
