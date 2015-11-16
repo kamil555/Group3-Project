@@ -15,7 +15,10 @@ import org.junit.Test;
  */
 public class InventoryTest {
 	
+	private static final double TOLERANCE = .0001;
+	
 	private Inventory myInventory;
+	private Inventory myNewInventory;
 	private Item myItem1;
 
 	@Before
@@ -47,7 +50,23 @@ public class InventoryTest {
 		myInventory.addItem(myItem1);
 		assertEquals(2, myInventory.getSize());
 		for(int i = 0; i < myInventory.listofItems.size(); i++) {
-			//assertEquals();			
+			assertEquals("Auction1Name", myInventory.listofItems.get(i).auctionName);	
+			assertEquals(5.00, myInventory.listofItems.get(i).startBid, TOLERANCE);
+			assertEquals("Item1", myInventory.listofItems.get(i).itemName);
+			assertEquals("Description of item1", myInventory.listofItems.get(i).itemInfo);		
+		}
+		
+		// testing if new inventory will read the two auctions
+		// that were added from myInventory additions. This will
+		// show that they were written to "Inventory.txt" whe added
+		// as well as that the constructor read the file.
+		myNewInventory = new Inventory();
+		assertEquals(2, myNewInventory.getSize());
+		for(int i = 0; i < myNewInventory.listofItems.size(); i++) {
+			assertEquals("Auction1Name", myNewInventory.listofItems.get(i).auctionName);	
+			assertEquals(5.00, myNewInventory.listofItems.get(i).startBid, TOLERANCE);
+			assertEquals("Item1", myNewInventory.listofItems.get(i).itemName);
+			assertEquals("Description of item1", myNewInventory.listofItems.get(i).itemInfo);		
 		}
 	}
 	

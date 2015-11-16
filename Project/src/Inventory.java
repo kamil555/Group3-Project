@@ -27,8 +27,8 @@ public class Inventory
 	public Inventory()
 	{
 		listofItems = new ArrayList<Item>();
-		size = listofItems.size();
 		readFile("Inventory.txt");
+		size = listofItems.size();
 	}
 	
 	/**
