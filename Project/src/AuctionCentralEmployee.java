@@ -63,7 +63,9 @@ public class AuctionCentralEmployee
 		System.out.println(a.printDetials());
 		System.out.println("Press 1 to return to main menu");
 		int input = reader.nextInt();
-		while (input != AUCTIONS)
+		
+		//Note: need to fix eventually to be not "1"
+		while (input != 1)
 		{
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
@@ -90,7 +92,9 @@ public class AuctionCentralEmployee
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while (input != AUCTIONS)
+		
+		//Note: need to fix eventually to be not "1"
+		while (input != 1)
 		{
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
