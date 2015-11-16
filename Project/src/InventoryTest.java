@@ -1,3 +1,60 @@
+import static org.junit.Assert.*;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Testing for inventory class.
+ * 
+ * @author Gabrielle Glynn
+ * @since November 14, 2015
+ */
+public class InventoryTest {
+	
+	private Inventory myInventory;
+	private Item myItem1;
+
+	@Before
+	public void setUp() throws Exception {
+		
+		// setting up empty inventory list
+		myInventory = new Inventory();
+		
+		myItem1 = new Item("Auction1Name", 5.00, "Item1", "Description of item1");
+	}
+
+	/*
+	 * Note: "Inventory.txt" must be cleared and empty
+	 * before running the test.
+	 */
+	@Test
+	public void testAddItem() throws IOException {
+		// Testing that size reads zero and that array
+		// list is empty since size is set with the
+		// array list.
+		assertEquals(0, myInventory.getSize());
+		
+		// Testing size and array are updated.
+		myInventory.addItem(myItem1);
+		assertEquals(1, myInventory.getSize());
+		
+		// Testing size updated again, and contents
+		// of the array are as expected.
+		myInventory.addItem(myItem1);
+		assertEquals(2, myInventory.getSize());
+		for(int i = 0; i < myInventory.listofItems.size(); i++) {
+			//assertEquals();			
+		}
+	}
+	
+}
+
+/*
+
 import java.io.IOException;
 
 public class InventoryTest
@@ -14,7 +71,7 @@ public class InventoryTest
 		in.viewAllitems();
 		in.addItem(i);
 		System.out.println(in.listofItems.get(0));
-		Bid b = new Bid(u1.userName, i.itemID, 6.0);
+		Bid b = new Bid(u1.username, i.itemID, 6.0);
 		System.out.println(b.toString());
 		bidList bl = new bidList();
 		bl.addBid(u1, b);
@@ -25,3 +82,4 @@ public class InventoryTest
 	}
 	
 }
+*/
