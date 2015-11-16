@@ -258,10 +258,12 @@ public class NonProfit
 		double startBid = reader.nextDouble();
 		System.out.println("More Information about item :");
 		String moreInfo = reader.nextLine();
-		Item i = new Item(a.getAuctionName(), startBid, itemName, moreInfo);
-		Inventory in = new Inventory();
-		in.addItem(i);
-		System.out.println("Item can now be bidded on");
+		if(!moreInfo.isEmpty()) {
+			Item i = new Item(a.getAuctionName(), startBid, itemName, moreInfo);
+			Inventory in = new Inventory();
+			in.addItem(i);
+			System.out.println("Item can now be bidded on");
+		}
 	}
 	
 	/**

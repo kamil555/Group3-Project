@@ -60,7 +60,7 @@ public class AuctionCentralEmployee
 		Scanner reader = new Scanner(System.in);
 		int select = reader.nextInt();
 		Auction a = c.futureAuctionList.get(select);
-		System.out.println(a.printDetials());
+		System.out.println(a.printDetails());
 		System.out.println("Press 1 to return to main menu");
 		int input = reader.nextInt();
 		

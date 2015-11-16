@@ -3,3 +3,6 @@ MIZU,Bidder
 MINO,AuctionCentral Employee
 POOP,Nonprofit
 GABRIELLE,AuctionCentral Employee
+GabrielleBidder,Bidder
+GABRIELLEBID,Bidder
+GABRIELLENP,Nonprofit
