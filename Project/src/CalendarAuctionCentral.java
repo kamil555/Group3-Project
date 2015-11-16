@@ -13,10 +13,8 @@ import java.io.PrintWriter;
  * @since November 8, 2015
  * @updated November 14, 2015
  */
-
 public class CalendarAuctionCentral
 {
-	
 	private int futureAuctions;
 	private ArrayList<Auction> auctionList;
 	ArrayList<Auction> futureAuctionList;
@@ -410,15 +408,10 @@ public class CalendarAuctionCentral
 			while ((line = bufferedReader.readLine()) != null)
 			{	
 				String[] split = line.split(",", 3);
-				System.out.println("split[0]: " + split[0]);
 				String auctionName = split[0];
-				System.out.println("here at line 415 in CalendarAuctionCentral is when it stopped working");	
 				Date auctionDate = new Date(split[1]);
-				System.out.println("here !");	
 				String auctionDuration = split[2];
-				System.out.println("here ~");	
 				int duration = Integer.parseInt(auctionDuration);
-				System.out.println("here *");	
 				String[] splitName = auctionName.split("-", 2);
 				String nonProfitName = splitName[0];
 				
