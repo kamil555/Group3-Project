@@ -22,15 +22,21 @@ public class CalendarAuctionCentral
 	ArrayList<Auction> futureAuctionList;
 	private ArrayList<Auction> pastAuctionList;
 	
+	private static int MAX_FUTURE_AUCTIONS = 25;
+	private static int MAX_DAYS_OUT = 90;
+	private static int MAX_AUCTIONS_ROLLING_7DAY = 5;
+	private static int MAX_AUCTIONS_SAME_DAY = 2;
+	private static int MAX_HOURS_BTW_AUCTIONS = 2;
+	private static int MAX_NP_AUCTIONS_PER_DAY = 365;
+	
 	// needs to check textFile
 	public CalendarAuctionCentral() throws ParseException
 	{
 		auctionList = new ArrayList<Auction>();
 		auctionList = readAuctionsFromFile("auctionList.txt");
-		
+			
 		futureAuctionList = new ArrayList<Auction>();
 		pastAuctionList = new ArrayList<Auction>();
-		
 		for (Auction a : auctionList)
 		{
 			Date now = new Date();
@@ -57,13 +63,6 @@ public class CalendarAuctionCentral
 		return sCalendar;
 	}
 	
-	private static int MAX_FUTURE_AUCTIONS = 25;
-	private static int MAX_DAYS_OUT = 90;
-	private static int MAX_AUCTIONS_ROLLING_7DAY = 5;
-	private static int MAX_AUCTIONS_SAME_DAY = 2;
-	private static int MAX_HOURS_BTW_AUCTIONS = 2;
-	private static int MAX_NP_AUCTIONS_PER_DAY = 365;
-	
 	// return array list of all auctions: past and future
 	public ArrayList<Auction> getAuctionList()
 	{
@@ -72,12 +71,10 @@ public class CalendarAuctionCentral
 	
 	public Auction getAuction(User u) throws ParseException, IOException
 	{
-		System.out
-				.println("Select your Auction or Press -1 to go back to main menu:");
+		System.out.println("Select your Auction or Press -1 to go back to main menu:");
 		for (int i = 0; i < auctionList.size(); i++)
 		{
-			if (auctionList.get(i).getProfitName()
-					.equalsIgnoreCase(u.organization))
+			if (auctionList.get(i).getProfitName().equalsIgnoreCase(u.organization))
 			{
 				System.out.println(i + ")" + auctionList.get(i).toString());
 			}
@@ -112,41 +109,41 @@ public class CalendarAuctionCentral
 	// check if Date meets requirements, true mean accepted, false means denied
 	public boolean checkRequestedDate(Date reqDate) throws ParseException
 	{
-		System.out.println("1");
 		if (!atMaxFutureAuctions())
 		{
-			if (!inDateRange(reqDate))
+			if (inDateRange(reqDate))
 			{
 				if (!atMaxAuctionsPerDay(reqDate))
 				{
-					if (!atMaxAuctions7day(reqDate))
-					{
+//					if (!atMaxAuctions7day(reqDate))
+//					{
 						if (!is2HoursBeforeStart(reqDate))
 						{
 							return true;
 						} else
 						{
-							System.out.println("2");
+							System.out.println("Sorry, we have another auction within 2 hours of your requested auction.");
 							return false;
 						}
-					} else
-					{
-						System.out.println("3");
-						return false;
-					}
+//					} 
+//					else
+//					{
+//						System.out.println("Sorry, we are at our limits for the requested week.");
+//						return false;
+//					}
 				} else
 				{
-					System.out.println("4");
+					System.out.println("Sorry, we are at our limits for the requested date.");
 					return false;
 				}
 			} else
 			{
-				System.out.println("5");
+				System.out.println("Date not in range (must be within 90 days from today)");
 				return false;
 			}
 		} else
 		{
-			System.out.println("6");
+			System.out.println("At Max future Auctions.");
 			return false;
 		}
 	}
@@ -156,18 +153,17 @@ public class CalendarAuctionCentral
 	public boolean checkRequestedAuction(Auction reqAuction)
 			throws ParseException
 	{
-		System.out.println("wtf");
 		if (!atMaxFutureAuctions())
 		{
-			if (!inDateRange(reqAuction.getAuctionEnd()))
+			if (inDateRange(reqAuction.getAuctionEnd()))
 			{
 				if (!oneAuctionPerYear(reqAuction.getProfitName(),
 						reqAuction.getAuctionStart()))
 				{
 					if (!atMaxAuctionsPerDay(reqAuction.getAuctionStart()))
 					{
-						if (!atMaxAuctions7day(reqAuction.getAuctionStart()))
-						{
+//						if (!atMaxAuctions7day(reqAuction.getAuctionStart()))
+//						{
 							if (!is2HoursBeforeStart(reqAuction
 									.getAuctionStart()))
 							{
@@ -177,29 +173,29 @@ public class CalendarAuctionCentral
 								System.out.println("2 hour before start");
 								return false;
 							}
-						} else
-						{
-							System.out.println("At max 7 day");
-							return false;
-						}
+//						} else
+//						{
+//							System.out.println("At max 7 day");
+//							return false;
+//						}
 					} else
 					{
-						System.out.println("at max auction per date.");
+						System.out.println("at max auction per day.");
 						return false;
 					}
 				} else
 				{
-					System.out.println("Not in date range.");
+					System.out.println("One Auction per year");
 					return false;
 				}
 			} else
 			{
-				System.out.println("At max auction.");
+				System.out.println("Not in date range.");
 				return false;
 			}
 		} else
 		{
-			System.out.println("poop");
+			System.out.println("At max future auctions");
 			return false;
 		}
 	}
@@ -246,21 +242,15 @@ public class CalendarAuctionCentral
 			tempB.addDays(-1);
 			for (int j = 0; j < auctionList.size(); j++)
 			{
-				if (auctionList.get(j).getAuctionStart().getMonth() == tempA
-						.getMonth()
-						&& auctionList.get(j).getAuctionStart().getDay() == tempA
-								.getDay()
-						&& auctionList.get(j).getAuctionStart().getYear() == tempA
-								.getYear())
+				if (auctionList.get(j).getAuctionStart().getMonth() == tempA.getMonth()
+						&& auctionList.get(j).getAuctionStart().getDay() == tempA.getDay()
+						&& auctionList.get(j).getAuctionStart().getYear() == tempA.getYear())
 				{
 					jobsAfter++;
 				}
-				if (auctionList.get(j).getAuctionStart().getMonth() == tempB
-						.getMonth()
-						&& auctionList.get(j).getAuctionStart().getDay() == tempB
-								.getDay()
-						&& auctionList.get(j).getAuctionStart().getYear() == tempB
-								.getYear())
+				if (auctionList.get(j).getAuctionStart().getMonth() == tempB.getMonth()
+						&& auctionList.get(j).getAuctionStart().getDay() == tempB.getDay()
+						&& auctionList.get(j).getAuctionStart().getYear() == tempB.getYear())
 				{
 					jobsBefore++;
 				}
@@ -287,12 +277,11 @@ public class CalendarAuctionCentral
 	private boolean inDateRange(Date requestedDate) throws ParseException
 	{
 		Date currentDate = new Date();
-		currentDate.addDays(MAX_DAYS_OUT);
-		if (currentDate.before(requestedDate))
-		{
-			return false;
-		}
-		return true;
+		Date inNintyDays = new Date();
+		System.out.println(currentDate);
+		inNintyDays.addDays(MAX_DAYS_OUT);
+		return currentDate.before(requestedDate) && !(inNintyDays.before(requestedDate));
+		
 	}
 	
 	// no more than 2 auctions in the same day
@@ -302,20 +291,17 @@ public class CalendarAuctionCentral
 		int auctions = 0;
 		for (int j = 0; j < auctionList.size(); j++)
 		{
-			if (auctionList.get(j).getAuctionStart().getMonth() == requestedDate
-					.getMonth()
-					&& auctionList.get(j).getAuctionStart().getDay() == requestedDate
-							.getDay()
-					&& auctionList.get(j).getAuctionStart().getYear() == requestedDate
-							.getYear())
+			if (auctionList.get(j).getAuctionStart().getMonth() == requestedDate.getMonth() // same
+																							// month
+					&& auctionList.get(j).getAuctionStart().getDay() == requestedDate.getDay() // same
+																								// date
+					&& auctionList.get(j).getAuctionStart().getYear() == requestedDate.getYear()) // same
+																									// year
 			{
 				auctions++;
 				if (auctions > MAX_AUCTIONS_SAME_DAY)
 				{
 					return true;
-				} else
-				{
-					return false;
 				}
 			}
 		}
@@ -414,24 +400,25 @@ public class CalendarAuctionCentral
 	{
 		String line = null;
 		try
-		{
-			
+		{			
 			ArrayList<Auction> auctionList = new ArrayList<Auction>();
 			// FileReader reads text files in the default encoding.
 			FileReader fileReader = new FileReader(fileName);
-			
 			// Always wrap FileReader in BufferedReader.
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			
 			while ((line = bufferedReader.readLine()) != null)
-			{
-				
+			{	
 				String[] split = line.split(",", 3);
+				System.out.println("split[0]: " + split[0]);
 				String auctionName = split[0];
+				System.out.println("here at line 415 in CalendarAuctionCentral is when it stopped working");	
 				Date auctionDate = new Date(split[1]);
+				System.out.println("here !");	
 				String auctionDuration = split[2];
+				System.out.println("here ~");	
 				int duration = Integer.parseInt(auctionDuration);
-				
+				System.out.println("here *");	
 				String[] splitName = auctionName.split("-", 2);
 				String nonProfitName = splitName[0];
 				

@@ -19,7 +19,7 @@ public class Bidder
 	 */
 	public Bidder(User u) throws IOException, ParseException
 	{
-		System.out.println("Welcome :" + u.userName);
+		System.out.println("Welcome, " + u.userName);
 		System.out.println("Press 1 to see availiable auctions");
 		System.out.println("Press 2 to see bidded items");
 		System.out.println("Press 3 log out");

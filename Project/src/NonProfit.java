@@ -24,7 +24,6 @@ public class NonProfit
 		System.out.println("Press 3 to enter add item to inventory ");
 		System.out.println("Press 4 to edit inventory item information");
 		System.out.println("Press 5 to Log out");
-		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		while (!reader.hasNextInt())
 		{
@@ -43,6 +42,7 @@ public class NonProfit
 	
 	private void selectOption(Scanner reader, int input, User user) throws ParseException, IOException
 	{
+		System.out.println(user);
 		CalendarAuctionCentral c;
 		Auction a;
 		switch (input)
@@ -70,16 +70,15 @@ public class NonProfit
 				int hour = reader.nextInt();
 				System.out.println("Enter Minute Auction to Start(0-59): ");
 				int minute = reader.nextInt();
-				System.out.println("Enter Second Auction to Start(0-59): ");
-				int second = reader.nextInt();
+				int second = 0;
 				System.out.println("Enter the Duration(Hours): ");
 				int duration = reader.nextInt();
 				String requestday = month + "/" + day + "/" + year + " "
 						+ hour + ":" + minute + ":" + second;
 				Date request = new Date(requestday);
-				
+				System.out.println(request);	
 				scheduleAuction(user, request, duration);
-				
+							
 				break;
 			case 2:
 				c = new CalendarAuctionCentral();
@@ -121,6 +120,7 @@ public class NonProfit
 	public void scheduleAuction(User u, Date auctionDate, int duration)
 			throws ParseException, IOException
 	{
+		System.out.println("poop");
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		if (c.checkRequestedDate(auctionDate))
 		{
@@ -216,8 +216,7 @@ public class NonProfit
 					int hour = reader.nextInt();
 					System.out.println("Enter Minute Auction to Start(0-59): ");
 					int minute = reader.nextInt();
-					System.out.println("Enter Second Auction to Start(0-59): ");
-					int second = reader.nextInt();
+					int second = 0;
 					String editday = month + "/" + day + "/" + year + " "
 							+ hour + ":" + minute + ":" + second;
 					Date newday = new Date(editday);

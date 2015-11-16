@@ -148,7 +148,7 @@ public class Users
 			createUser(userName, "Bidder");
 		} else if (inputUser == EMPLOYEE)
 		{
-			createUser(userName, "ActionCentral Employee");
+			createUser(userName, "AuctionCentral Employee");
 		} else if (inputUser == NONPROFIT)
 		{
 			createUser(userName, "Nonprofit");
@@ -210,18 +210,18 @@ public class Users
 	@SuppressWarnings("unused")
 	public boolean login(String userName) throws IOException, ParseException
 	{
+		userName.toUpperCase();
 		for (int i = 0; i < users.size(); i++)
 		{
 			if (users.get(i).userName.endsWith(userName))
-			{
+			{	
 				if (users.get(i).user.equalsIgnoreCase("Bidder"))
 				{
 					Bidder b = new Bidder(users.get(i));
 					break;
 				} else if (users.get(i).user.equalsIgnoreCase("AuctionCentral Employee"))
 				{
-					AuctionCentralEmployee a = new AuctionCentralEmployee(
-							users.get(i));
+					AuctionCentralEmployee a = new AuctionCentralEmployee(users.get(i));
 					break;
 				} else if (users.get(i).user.equalsIgnoreCase("nonprofit"))
 				{
@@ -248,6 +248,7 @@ public class Users
 	 */
 	private boolean isOnePerOrg(String org)
 	{
+		
 		for (int i = 0; i < users.size(); i++)
 		{
 			if (users.get(i).organization != null)

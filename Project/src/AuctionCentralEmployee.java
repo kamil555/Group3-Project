@@ -18,7 +18,7 @@ public class AuctionCentralEmployee
 	 */
 	public AuctionCentralEmployee(User u) throws ParseException
 	{
-		System.out.println("Employee :" + u.userName);
+		System.out.println("Employee, " + u.userName);
 		System.out.println("Press 1 to view calendar");
 		System.out.println("Press 2 to view Auction Details");
 		@SuppressWarnings("resource")
