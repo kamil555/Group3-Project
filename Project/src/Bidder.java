@@ -42,7 +42,7 @@ public class Bidder
 						.println("Enter item ID to edit bid or -1 to go back: ");
 				int select = reader.nextInt();
 				Inventory i = new Inventory();
-				Item it = i.getItem(select);
+				Item it = i.getItemFromList(select);
 				if (select == -1)
 				{
 					new Bidder(u);

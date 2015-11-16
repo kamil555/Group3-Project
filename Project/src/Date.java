@@ -358,6 +358,7 @@ public class Date
 		this.date = newDate;
 	}
 	
+	
 	/**
 	 * clones the date to another object.
 	 */

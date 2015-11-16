@@ -22,7 +22,7 @@ public class bidList
 	{
 		Bid per = new Bid(user.userName, b.getItemID(), b.getBidAmount());
 		Inventory i = new Inventory();
-		Item it = i.getItem(b.getItemID());
+		Item it = i.getItemFromList(b.getItemID());
 		if (b.getBidAmount() >= it.startBid)
 		{
 			Bidlist.add(per);

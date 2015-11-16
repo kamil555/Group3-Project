@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * 
  * @author Stepan Adespya
  * @since November 9, 2015
+ * @edited by Gabrielle 11/15/2015
  */
 public class Inventory
 {
@@ -64,7 +65,11 @@ public class Inventory
 	 */
 	public void editItemName(int itemID, String newName) throws IOException
 	{
-		listofItems.get(itemID).setItemName(newName);
+		for(Item itm: listofItems) {
+			if(itm.getItemID() == itemID) {
+				itm.setItemName(newName);
+			}
+		}
 		writeAllItemsToFile("Inventory.txt");
 	}
 	
@@ -78,7 +83,11 @@ public class Inventory
 	public void editItemStartBid(int itemID, double startBid)
 			throws IOException
 	{
-		listofItems.get(itemID).setStartBid(startBid);
+		for(Item itm: listofItems) {
+			if(itm.getItemID() == itemID) {
+				itm.setStartBid(startBid);
+			}
+		}
 		writeAllItemsToFile("Inventory.txt");
 	}
 	
@@ -91,8 +100,11 @@ public class Inventory
 	 */
 	public void editItemInfo(int itemID, String info) throws IOException
 	{
-		listofItems.get(itemID).setItemInfo(info);
-		;
+		for(Item itm: listofItems) {
+			if(itm.getItemID() == itemID) {
+				itm.setItemInfo(info);
+			}
+		}
 		writeAllItemsToFile("Inventory.txt");
 	}
 	
@@ -127,19 +139,20 @@ public class Inventory
 	}
 	
 	/**
-	 * Shows all the items in a selected auction.
-	 * 
+	 * Shows all the items in a selected auction and returns how many.
+	 * NOTE: Separate functions?
 	 * @param a
 	 */
-	public void allItemsAuction(Auction a)
+	public int allItemsAuction(Auction a)
 	{
-		for (int i = 0; i < listofItems.size(); i++)
-		{
-			if (listofItems.get(i).auctionName.endsWith(a.getAuctionName()))
-			{
-				System.out.println(i + ") " + listofItems.get(i).toString());
+		int i = 0;
+		for(Item itm: this.listofItems) {
+			if(itm.getAuctionName().equals(a.getAuctionName())) {
+				i++;
+				System.out.println(i + ") " + itm.toString());
 			}
 		}
+		return i;
 	}
 	
 	/**
@@ -173,14 +186,18 @@ public class Inventory
 	}
 	
 	/**
-	 * Gives the item id number.
+	 * Gives the item from id number.
 	 * 
 	 * @param ID
 	 * @return
 	 */
-	public Item getItem(int ID)
+	//NEED TO CHECK-WHEN IS IT USED?
+	public Item getItemFromList(int ID)
 	{
-		return listofItems.get(ID);
+		for(Item itm: this.listofItems) {
+			if(itm.getItemID() == ID) return itm;
+		}
+		return null;
 	}
 	
 	/**

@@ -16,6 +16,11 @@ public class Item
 	// String winUser;
 	public String auctionName;
 	
+	public String getAuctionName()
+	{
+		return this.auctionName;
+	}
+	
 	public double getStartBid()
 	{
 		return startBid;
@@ -28,7 +33,7 @@ public class Item
 	
 	public int getItemID()
 	{
-		return itemID;
+		return this.itemID;
 	}
 	
 	public void setItemID(int itemID)
@@ -61,7 +66,7 @@ public class Item
 	{
 		// super();
 		this.auctionName = auctionName;
-		this.itemID = getID();
+		this.itemID = createID();
 		this.startBid = startBid;
 		this.itemName = itemName;
 		this.itemInfo = itemInfo;
@@ -78,10 +83,9 @@ public class Item
 		this.itemInfo = itemInfo;
 	}
 	
-	private int getID()
-	{
-		Inventory i = new Inventory();
-		return i.listofItems.size();
+	private int createID()
+	{		
+		return itemIDGenerator.nextID();
 	}
 	
 }

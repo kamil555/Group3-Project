@@ -22,7 +22,7 @@ public class Auction
 			throws ParseException
 	{
 		this.auctionStart = auctionStartDate;
-		Date auctionEnd = auctionStartDate.clone();
+		Date auctionEnd = auctionStart.clone();
 		auctionEnd.addHours(auctionDuration);
 		this.auctionEnd = auctionEnd;
 		String date = getDate(auctionStartDate.getMonth(),
@@ -34,12 +34,7 @@ public class Auction
 	
 	public String getAuctionName()
 	{
-		return auctionName;
-	}
-	
-	public void setAuctionName(String auctionName)
-	{
-		this.auctionName = auctionName;
+		return this.auctionName;
 	}
 	
 	public Date getAuctionStart()
