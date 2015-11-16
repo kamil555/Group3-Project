@@ -104,7 +104,7 @@ public class Auction
 		return mm + "-" + day + "-" + year;
 	}
 	
-	public String printDetials()
+	public String printDetails()
 	{
 		return "Auction Name = " + this.auctionName + "Non-Profit Name = "
 				+ this.profitName + "Auction Start Date = "
