@@ -178,11 +178,11 @@ public class Inventory
 	 */
 	public void viewAllitems()
 	{
-		for (int i = 0; i < listofItems.size(); i++)
-		{
-			System.out.println(i + ") " + listofItems.get(i).toString());
-		}
-		
+		int i = 0;
+		for(Item itm: this.listofItems) {
+			i++;
+			System.out.println(i + ") " + itm.toString());
+		}		
 	}
 	
 	/**
@@ -191,7 +191,6 @@ public class Inventory
 	 * @param ID
 	 * @return
 	 */
-	//NEED TO CHECK-WHEN IS IT USED?
 	public Item getItemFromList(int ID)
 	{
 		for(Item itm: this.listofItems) {

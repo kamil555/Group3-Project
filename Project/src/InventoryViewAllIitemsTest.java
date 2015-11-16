@@ -40,20 +40,8 @@ public class InventoryViewAllIitemsTest {
 	 */
 	@Test
 	public void testAllAuctionItems() throws ParseException {
-
-		Date testDate1 = new Date("11/22/2015 10:00:00");
-		Auction testAuction1 = new Auction("NPName1", testDate1, 2);
-		assertEquals(2, myInventory.allItemsAuction(testAuction1));
-		
-		Auction testAuction2 = new Auction("NPName2", testDate1, 2);
-		assertEquals(1, myInventory.allItemsAuction(testAuction2));
-		
-		Auction testAuction3 = new Auction("NPName3", testDate1, 2);
-		assertEquals(1, myInventory.allItemsAuction(testAuction3));
-		
-		// testing name not on list
-		Auction testAuction4 = new Auction("NPName4", testDate1, 2);
-		assertEquals(0, myInventory.allItemsAuction(testAuction4));
+		// verify in console and text file
+		myInventory.viewAllitems();
 	}
 
 

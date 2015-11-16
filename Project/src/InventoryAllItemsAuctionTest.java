@@ -18,6 +18,7 @@ public class InventoryAllItemsAuctionTest {
 	private Item myItem2;
 	private Item myItem3;
 	private Item myItem4;
+	private Item myItem5;
 
 	@Before
 	public void setUp() throws Exception {
@@ -28,12 +29,14 @@ public class InventoryAllItemsAuctionTest {
 		myItem1 = new Item("NPName1-November-22-2015", 5.00, "Item1", "Description of item1");		
 		myItem2 = new Item("NPName1-November-22-2015", 5.00, "Item2", "Description of item2");
 		myItem3 = new Item("NPName2-November-22-2015", 5.00, "Item3", "Description of item3");		
-		myItem4 = new Item("NPName3-November-22-2015", 5.00, "Item4", "Description of item4");
+		myItem4 = new Item("NPName3-November-22-2015", 5.00, "Item4", "Description of item4");		
+		myItem5 = new Item("NPName1-November-22-2015", 5.00, "Item5", "Description of item5");
 		
 		myInventory.addItem(myItem1);
 		myInventory.addItem(myItem2);
 		myInventory.addItem(myItem3);
 		myInventory.addItem(myItem4);
+		myInventory.addItem(myItem5);
 	}
 
 	/*
@@ -45,7 +48,7 @@ public class InventoryAllItemsAuctionTest {
 
 		Date testDate1 = new Date("11/22/2015 10:00:00");
 		Auction testAuction1 = new Auction("NPName1", testDate1, 2);
-		assertEquals(2, myInventory.allItemsAuction(testAuction1));
+		assertEquals(3, myInventory.allItemsAuction(testAuction1));
 		
 		Auction testAuction2 = new Auction("NPName2", testDate1, 2);
 		assertEquals(1, myInventory.allItemsAuction(testAuction2));
