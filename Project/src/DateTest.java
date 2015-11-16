@@ -76,26 +76,27 @@ public class DateTest {
 	}
 	
 	@Test
-	public void testAddHours() {
-		/*
+	public void testAddHours() throws ParseException {
+		
 		Date expTime1 = new Date("11/17/2015 19:0:0");
 		date1.addHours(1);
 		assertEquals(expTime1.toString(),date1.toString());
 		
-		Date expDate2 = new Date("11/22/2014 18:0:0");
-		date1.addDays(-365);
-		assertEquals(expDate2.toString(),date1.toString());
-		*/
+		Date expTime2 = new Date("11/16/2015 19:0:0");
+		date1.addHours(-24);
+		assertEquals(expTime2.toString(),date1.toString());	
 	}
 	
 	@Test
 	public void testClone() {
-		fail("Not yet implemented");
+		Date sameDate = new Date();
+		sameDate = date1.clone();
+		assertEquals(sameDate.toString(),date1.toString());	
 	}
 	
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		assertEquals("11/17/2015 18:00:00",date1.toString());
 	}
 
 }
