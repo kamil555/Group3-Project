@@ -37,6 +37,17 @@ public class Inventory
 	 * @param i
 	 * @throws IOException
 	 */
+	public int getSize()
+	{
+		return this.size;
+	}
+	
+	/**
+	 * Adds a item to the Array list.
+	 * 
+	 * @param i
+	 * @throws IOException
+	 */
 	public void addItem(Item i) throws IOException
 	{
 		listofItems.add(i);
