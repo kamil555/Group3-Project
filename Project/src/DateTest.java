@@ -1,4 +1,59 @@
-import java.text.ParseException;
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+/**
+ * @author Gabrielle Glynn
+ * @since November 15, 2015
+ */
+
+public class DateTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testGetDiffHours() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testGetDiffDay() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testBefore() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testAddDays() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testAddHours() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testClone() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testToString() {
+		fail("Not yet implemented");
+	}
+
+}
+
+/*
+ import java.text.ParseException;
 
 public class DateTest
 {
@@ -29,3 +84,4 @@ public class DateTest
 	}
 	
 }
+*/
