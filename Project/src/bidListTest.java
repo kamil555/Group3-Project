@@ -24,7 +24,7 @@ public class bidListTest
 		
 		user = new User("Han", "User");
 		// item = new Item(1.00, "cake","just an cake");
-		bid = new Bid(user.username, 0, 4.2);
+		bid = new Bid(user.userName, 0, 4.2);
 		
 	}
 	
@@ -38,7 +38,7 @@ public class bidListTest
 	public void testAddBid() throws Exception
 	{
 		// bidlist.addBid(user, item, 4.2);
-		assertEquals("add name fail", "Han", user.username);
+		assertEquals("add name fail", "Han", user.userName);
 		assertEquals("add ID fail", 123, item.itemID);
 		assertEquals("add Amount fail", 4.2, bid.getBidAmount(), TOLERANCE);
 	}
@@ -47,7 +47,7 @@ public class bidListTest
 	public void testEditBid() throws Exception
 	{
 		// bidlist.editBid(user, item, 5.5, 123);
-		assertEquals("edit name fail", "Han", user.username);
+		assertEquals("edit name fail", "Han", user.userName);
 		assertEquals("add ID fail", 123, item.itemID);
 		assertEquals("edit Amount fail", 5.5, bid.getBidAmount(), TOLERANCE);
 	}

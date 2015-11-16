@@ -141,7 +141,7 @@ public class Inventory
 		bidList b = new bidList();
 		for (int i = 0; i < b.Bidlist.size(); i++)
 		{
-			if (b.Bidlist.get(i).getuserName().endsWith(u.username))
+			if (b.Bidlist.get(i).getuserName().endsWith(u.userName))
 			{
 				System.out.println(i + ") " + b.Bidlist.get(i).toString());
 			}

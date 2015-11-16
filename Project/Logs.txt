@@ -1,2 +1,1 @@
-Stepan,Bidder
-Han,AuctionCentral Employee
+MINDY,Nonprofit

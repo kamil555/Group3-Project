@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class TestInventory
+public class InventoryTest
 {
 	
 	public static void main(String[] args) throws IOException
@@ -14,7 +14,7 @@ public class TestInventory
 		in.viewAllitems();
 		in.addItem(i);
 		System.out.println(in.listofItems.get(0));
-		Bid b = new Bid(u1.username, i.itemID, 6.0);
+		Bid b = new Bid(u1.userName, i.itemID, 6.0);
 		System.out.println(b.toString());
 		bidList bl = new bidList();
 		bl.addBid(u1, b);

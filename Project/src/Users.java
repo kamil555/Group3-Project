@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * @author Stepan Adespya
+ * @author Stepan Adespya and Mindy Huynh
  * @since November 5, 2015
  */
 
 class User
 {
 	// UserName of person
-	protected String username;
+	protected String userName;
 	// Whether a person is a bidder,employee, or nonprofit
 	protected String user;
 	// If nonprofit, Organization name
@@ -32,7 +32,7 @@ class User
 	 */
 	public User(String username, String user)
 	{
-		this.username = username;
+		this.userName = username;
 		this.user = user;
 	}
 	
@@ -42,7 +42,7 @@ class User
 	 */
 	public String toString()
 	{
-		return username + "," + user;
+		return userName + ", " + user;
 	}
 	
 }
@@ -67,58 +67,99 @@ public class Users
 		readFileToUsers("Logs.txt");
 		readFileToOrg("NonProfit.txt");
 		System.out.println("Hello Welcome to AuctionCentral");
-		System.out
-				.println("To Login press 1, To Create User press 2, To Exit press 3");
-		@SuppressWarnings("resource")
+		System.out.println("Press 1 to login\nPress 2 to create user\nPress 3 to exit");
 		Scanner reader = new Scanner(System.in);
+		
+		//created a method that checks if its integer..keep prompting
+		checkForInt(reader);
+	}
+	
+	private void checkForInt(Scanner reader) throws IOException, ParseException
+	{
+		while(!reader.hasNextInt())
+		{
+			System.out.println("Please enter an integer between 1 and 3.");
+			reader = new Scanner(System.in);
+		}
+		selectOption(reader);		
+		
+	}
+	
+	private void selectOption(Scanner reader) throws IOException, ParseException
+	{
+		int login = 1;
+		int createUser = 2;
+		int exit = 3;
+		
 		int input = reader.nextInt();
-		while (input != 1 && input != 2 && input != 3)
+		while (input != login && input != createUser && input != exit)
 		{
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		String username = null;
+		String userName = null;
 		switch (input)
 		{
+			//login
 			case 1:
-				System.out.println("Enter Username :");
-				username = reader.next();
-				Login(username);
+				userLogin(reader, userName);
 				break;
+			
+			//createUser
 			case 2:
-				System.out.println("Create Username :");
-				username = reader.next();
-				while (isOneUserName(username))
+				System.out.println("Create Username: ");
+				userName = reader.next().toUpperCase();
+				while (isOneUserName(userName))
 				{
-					System.out
-							.println("This Username is taken, please enter another Username: ");
-					username = reader.next();
+					System.out.println("This Username is taken, please enter another Username: ");
+					userName = reader.next();
 				}
-				System.out
-						.println("Press 1 if you are an Bidder, 2 if you are an AuctionCentral Employee, 3 if you are an Nonprofit Organization");
-				int inputUser = reader.nextInt();
-				while (inputUser != BIDDER && inputUser != EMPLOYEE
-						&& inputUser != NONPROFIT)
-				{
-					System.out.println("Sorry wrong input, Please try again");
-					inputUser = reader.nextInt();
-				}
-				if (inputUser == BIDDER)
-				{
-					createUser(username, "Bidder");
-				} else if (inputUser == EMPLOYEE)
-				{
-					createUser(username, "ActionCentral Employee");
-				} else if (inputUser == NONPROFIT)
-				{
-					createUser(username, "Nonprofit");
-				}
+				createNewUser(userName);
 				break;
+			
+			//exit
 			case 3:
 				System.exit(0);
 				break;
 		}
-		
+	}
+	
+	private void createNewUser(String userName) throws IOException, ParseException
+	{
+		System.out.println("Press 1 if you want to create an account as a Bidder"
+				+ "\nPress 2 if you want to create an account as an Auction Central Employee"
+				+ "\nPress 3 if you want to create an account as a Nonprofit Organization");
+		@SuppressWarnings("resource")
+		Scanner reader = new Scanner(System.in);
+		while(!reader.hasNextInt())
+		{
+			System.out.println("Please enter a number between 1 and 3.");
+			reader = new Scanner (System.in);
+		}
+		int inputUser = reader.nextInt();
+		while (inputUser != BIDDER && inputUser != EMPLOYEE
+				&& inputUser != NONPROFIT)
+		{
+			System.out.println("Sorry wrong input, please try again.");
+			inputUser = reader.nextInt();
+		}
+		if (inputUser == BIDDER)
+		{
+			createUser(userName, "Bidder");
+		} else if (inputUser == EMPLOYEE)
+		{
+			createUser(userName, "ActionCentral Employee");
+		} else if (inputUser == NONPROFIT)
+		{
+			createUser(userName, "Nonprofit");
+		}
+	}
+	
+	private void userLogin(Scanner reader, String userName) throws IOException, ParseException
+	{
+		System.out.print("Enter Username: ");
+		userName = reader.next().toUpperCase();
+		login(userName);
 	}
 	
 	/**
@@ -161,25 +202,23 @@ public class Users
 	/**
 	 * Login for users.
 	 * 
-	 * @param username
-	 * @param password
+	 * @param userName
 	 * @return
 	 * @throws IOException
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unused")
-	public boolean Login(String username) throws IOException, ParseException
+	public boolean login(String userName) throws IOException, ParseException
 	{
 		for (int i = 0; i < users.size(); i++)
 		{
-			if (users.get(i).username.endsWith(username))
+			if (users.get(i).userName.endsWith(userName))
 			{
 				if (users.get(i).user.equalsIgnoreCase("Bidder"))
 				{
 					Bidder b = new Bidder(users.get(i));
 					break;
-				} else if (users.get(i).user
-						.equalsIgnoreCase("AuctionCentral Employee"))
+				} else if (users.get(i).user.equalsIgnoreCase("AuctionCentral Employee"))
 				{
 					AuctionCentralEmployee a = new AuctionCentralEmployee(
 							users.get(i));
@@ -215,8 +254,7 @@ public class Users
 			{
 				if (users.get(i).organization.equalsIgnoreCase(org))
 				{
-					System.out
-							.println("Sorry only one person can represent the Nonprofit Organization");
+					System.out.println("Sorry only one person can represent the Nonprofit Organization");
 					return true;
 				}
 			}
@@ -234,7 +272,7 @@ public class Users
 	{
 		for (int i = 0; i < users.size(); i++)
 		{
-			if (users.get(i).username.equalsIgnoreCase(username))
+			if (users.get(i).userName.equalsIgnoreCase(username))
 			{
 				System.out.println("Sorry the Username is already taken");
 				return true;
@@ -300,7 +338,7 @@ public class Users
 				String orgname = split[1];
 				for (int i = 0; i < users.size(); i++)
 				{
-					if (users.get(i).username.equalsIgnoreCase(username))
+					if (users.get(i).userName.equalsIgnoreCase(username))
 					{
 						users.get(i).organization = orgname;
 					}

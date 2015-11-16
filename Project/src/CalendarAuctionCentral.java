@@ -112,6 +112,7 @@ public class CalendarAuctionCentral
 	// check if Date meets requirements, true mean accepted, false means denied
 	public boolean checkRequestedDate(Date reqDate) throws ParseException
 	{
+		System.out.println("1");
 		if (!atMaxFutureAuctions())
 		{
 			if (!inDateRange(reqDate))
@@ -125,22 +126,27 @@ public class CalendarAuctionCentral
 							return true;
 						} else
 						{
+							System.out.println("2");
 							return false;
 						}
 					} else
 					{
+						System.out.println("3");
 						return false;
 					}
 				} else
 				{
+					System.out.println("4");
 					return false;
 				}
 			} else
 			{
+				System.out.println("5");
 				return false;
 			}
 		} else
 		{
+			System.out.println("6");
 			return false;
 		}
 	}
@@ -150,7 +156,7 @@ public class CalendarAuctionCentral
 	public boolean checkRequestedAuction(Auction reqAuction)
 			throws ParseException
 	{
-		
+		System.out.println("wtf");
 		if (!atMaxFutureAuctions())
 		{
 			if (!inDateRange(reqAuction.getAuctionEnd()))
@@ -168,26 +174,32 @@ public class CalendarAuctionCentral
 								return true;
 							} else
 							{
+								System.out.println("2 hour before start");
 								return false;
 							}
 						} else
 						{
+							System.out.println("At max 7 day");
 							return false;
 						}
 					} else
 					{
+						System.out.println("at max auction per date.");
 						return false;
 					}
 				} else
 				{
+					System.out.println("Not in date range.");
 					return false;
 				}
 			} else
 			{
+				System.out.println("At max auction.");
 				return false;
 			}
 		} else
 		{
+			System.out.println("poop");
 			return false;
 		}
 	}
@@ -268,7 +280,7 @@ public class CalendarAuctionCentral
 	// no more than 25 auctions may be scheduled into the future
 	private boolean atMaxFutureAuctions()
 	{
-		return (futureAuctions == MAX_FUTURE_AUCTIONS);
+		return (futureAuctions >= MAX_FUTURE_AUCTIONS);
 	}
 	
 	// an auction may not be more than 90 days from the current date

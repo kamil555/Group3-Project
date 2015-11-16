@@ -20,13 +20,13 @@ public class bidList
 	
 	public void addBid(User user, Bid b) throws IOException
 	{
-		Bid per = new Bid(user.username, b.getItemID(), b.getBidAmount());
+		Bid per = new Bid(user.userName, b.getItemID(), b.getBidAmount());
 		Inventory i = new Inventory();
 		Item it = i.getItem(b.getItemID());
 		if (b.getBidAmount() >= it.startBid)
 		{
 			Bidlist.add(per);
-			String blist = "" + user.username + "," + b.getItemID() + ","
+			String blist = "" + user.userName + "," + b.getItemID() + ","
 					+ b.getBidAmount();
 			writeToFile("Bids.txt", blist);
 		}
@@ -46,7 +46,7 @@ public class bidList
 	{
 		for (int i = 0; i < Bidlist.size(); i++)
 		{
-			if (Bidlist.get(i).getuserName().endsWith(user.username)
+			if (Bidlist.get(i).getuserName().endsWith(user.userName)
 					&& bidAmount > item.startBid
 					&& item.itemID == Bidlist.get(i).getItemID())
 			{
@@ -61,7 +61,7 @@ public class bidList
 	{
 		for (int i = 0; i < Bidlist.size(); i++)
 		{
-			if (Bidlist.get(i).getuserName().equalsIgnoreCase(user.username)
+			if (Bidlist.get(i).getuserName().equalsIgnoreCase(user.userName)
 					&& item.itemID == Bidlist.get(i).getItemID())
 			{
 				Bidlist.remove(i);

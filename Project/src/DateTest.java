@@ -1,6 +1,6 @@
 import java.text.ParseException;
 
-public class TestDate
+public class DateTest
 {
 	
 	public static void main(String[] args) throws ParseException
