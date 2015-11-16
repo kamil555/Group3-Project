@@ -130,7 +130,7 @@ public class Inventory
 	 * @param fileName
 	 * @throws IOException
 	 */
-	private void clearFile(String fileName) throws IOException
+	public void clearFile(String fileName) throws IOException
 	{
 		FileWriter fw = new FileWriter(fileName, true);
 		PrintWriter pw = new PrintWriter(fw);

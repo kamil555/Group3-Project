@@ -113,8 +113,8 @@ public class CalendarAuctionCentral
 			{
 				if (!atMaxAuctionsPerDay(reqDate))
 				{
-//					if (!atMaxAuctions7day(reqDate))
-//					{
+					if (!atMaxAuctions7day(reqDate))
+					{
 						if (!is2HoursBeforeStart(reqDate))
 						{
 							return true;
@@ -123,12 +123,12 @@ public class CalendarAuctionCentral
 							System.out.println("Sorry, we have another auction within 2 hours of your requested auction.");
 							return false;
 						}
-//					} 
-//					else
-//					{
-//						System.out.println("Sorry, we are at our limits for the requested week.");
-//						return false;
-//					}
+					} 
+					else
+					{
+						System.out.println("Sorry, we are at our limits for the requested week.");
+						return false;
+					}
 				} else
 				{
 					System.out.println("Sorry, we are at our limits for the requested date.");
@@ -160,8 +160,8 @@ public class CalendarAuctionCentral
 				{
 					if (!atMaxAuctionsPerDay(reqAuction.getAuctionStart()))
 					{
-//						if (!atMaxAuctions7day(reqAuction.getAuctionStart()))
-//						{
+						if (!atMaxAuctions7day(reqAuction.getAuctionStart()))
+						{
 							if (!is2HoursBeforeStart(reqAuction
 									.getAuctionStart()))
 							{
@@ -171,11 +171,11 @@ public class CalendarAuctionCentral
 								System.out.println("2 hour before start");
 								return false;
 							}
-//						} else
-//						{
-//							System.out.println("At max 7 day");
-//							return false;
-//						}
+						} else
+						{
+							System.out.println("At max 7 day");
+							return false;
+						}
 					} else
 					{
 						System.out.println("at max auction per day.");
@@ -257,10 +257,10 @@ public class CalendarAuctionCentral
 		if (jobsAfter > MAX_AUCTIONS_ROLLING_7DAY
 				|| jobsBefore > MAX_AUCTIONS_ROLLING_7DAY)
 		{
-			return false;
+			return true;
 		} else
 		{
-			return true;
+			return false;
 		}
 		
 	}

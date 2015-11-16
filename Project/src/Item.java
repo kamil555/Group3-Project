@@ -85,7 +85,8 @@ public class Item
 	
 	private int createID()
 	{		
-		return itemIDGenerator.nextID();
+		Inventory in = new Inventory();
+		return in.getSize() + 1;
 	}
 	
 }
