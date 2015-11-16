@@ -51,6 +51,7 @@ public class Inventory
 	public void addItem(Item i) throws IOException
 	{
 		listofItems.add(i);
+		size = listofItems.size();
 		writeToFile("Inventory.txt", i.toString());
 	}
 	
