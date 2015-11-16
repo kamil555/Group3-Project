@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 6 elements to &apos;360Group&apos;&#x0D;&#x0A;- Original project: &apos;360Group&apos;&#x0D;&#x0A;- Destination element: &apos;360Group&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Check-In 2 for Group SNO.pdf&#x0D;&#x0A;     Inventory.txt&#x0D;&#x0A;     Logs.txt&#x0D;&#x0A;     README.md&#x0D;&#x0A;     Bids.txt&#x0D;&#x0A;     NonProfit.txt&#x0D;&#x0A;- Update references to refactored element" description="Move files" destination="=360Group" element1="src/Check-In 2 for Group SNO.pdf" element2="src/Inventory.txt" element3="src/Logs.txt" element4="src/README.md" element5="src/Bids.txt" element6="src/NonProfit.txt" files="6" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1447699644209" units="0" version="1.0"/>
+</session>

@@ -18,7 +18,7 @@ public class BidderTest {
 	@Before
 	public void setUp() throws Exception {
 		u = new User("Stepan","Bidder");
-		b = new Bidder(u);
+		
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class BidderTest {
 	 */
 	@Test
 	public void testBidder() throws IOException, ParseException {
-	
+		b = new Bidder(u);
 		assertNotNull(b);
 		assertNotNull(u);
 		assertEquals("Stepan",u.username);

@@ -1,0 +1,3 @@
+STEPANB,Bidder
+STEPANACE,AuctionCentral Employee
+STEPANNO,Nonprofit
