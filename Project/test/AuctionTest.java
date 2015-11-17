@@ -3,10 +3,12 @@ import static org.junit.Assert.*;
 import java.text.ParseException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-
+/**
+ * @author Gabrielle Glynn
+ * @since November 16, 2015
+ */
 public class AuctionTest {
 	
 	private Auction myAuction;

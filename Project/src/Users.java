@@ -119,7 +119,7 @@ public class Users
 			
 			//exit
 			case 3:
-				System.exit(0);
+				
 				break;
 		}
 	}
@@ -207,7 +207,6 @@ public class Users
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	@SuppressWarnings("unused")
 	public boolean login(String userName) throws IOException, ParseException
 	{
 		userName.toUpperCase();

@@ -10,20 +10,18 @@ import org.junit.Test;
  * @author Stepan Adespya
  *
  */
-public class UsersTest
-{
-	
+public class UsersTest {
+
 	private Users u;
-	
+
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
-	public void setUp() throws Exception
-	{
+	public void setUp() throws Exception {
 		u = new Users();
 	}
-	
+
 	/**
 	 * Test method for createUser.
 	 * 
@@ -31,12 +29,10 @@ public class UsersTest
 	 * @throws ParseException
 	 */
 	@Test
-	public void testCreateUser() throws IOException, ParseException
-	{
-		u.createUser("bob", "Nonprofit");
-		assertTrue(u.login("bob"));
+	public void testCreateUser() throws IOException, ParseException {
+		assertTrue(u.createUser("bob", "Nonprofit"));
 	}
-	
+
 	/**
 	 * Test method for Login.
 	 * 
@@ -44,9 +40,8 @@ public class UsersTest
 	 * @throws ParseException
 	 */
 	@Test
-	public void testLogin() throws IOException, ParseException
-	{
-		assertTrue(u.login("Stepan"));
+	public void testLogin() throws IOException, ParseException {
+		assertTrue(u.login("Stepanb"));
 	}
-	
+
 }

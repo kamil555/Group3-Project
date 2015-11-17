@@ -89,6 +89,7 @@ public class NonProfit
 				c = new CalendarAuctionCentral();
 				a = c.getAuction(user);
 				this.addItemInfo(user, a);
+				new NonProfit(user);
 				break;
 			case 4:
 				c = new CalendarAuctionCentral();
@@ -98,6 +99,7 @@ public class NonProfit
 				System.out.println("Enter the Number of item you want to edit");
 				int item = reader.nextInt();
 				this.editItemInfo(user, item);
+				new NonProfit(user);
 				break;
 			case 5:
 				new Users();
@@ -120,11 +122,10 @@ public class NonProfit
 	public void scheduleAuction(User u, Date auctionDate, int duration)
 			throws ParseException, IOException
 	{
-		System.out.println("poop");
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		if (c.checkRequestedDate(auctionDate))
 		{
-			addAuctionInfo(u, getAuctionName(u, auctionDate), auctionDate,
+			addAuctionInfo(u, u.organization, auctionDate,
 					duration);
 		} else
 		{
@@ -143,13 +144,14 @@ public class NonProfit
 	 * @throws ParseException
 	 * @throws IOException
 	 */
-	public void addAuctionInfo(User u, String profitName, Date auctionDate,
+	public void addAuctionInfo(User u, String orgName, Date auctionDate,
 			int auctionDuration) throws ParseException, IOException
 	{
-		Auction a = new Auction(profitName, auctionDate, auctionDuration);
+		Auction a = new Auction(orgName, auctionDate, auctionDuration);
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		if (c.checkRequestedAuction(a))
 		{
+			
 			c.addFutureAuction(a);
 			System.out.println("Auction added");
 			int input = 1;
@@ -210,6 +212,7 @@ public class NonProfit
 				int day = reader.nextInt();
 				System.out.println("Enter Year(Integer): ");
 				int year = reader.nextInt();
+				CalendarAuctionCentral c;
 				if (isValidDate(month, day, year))
 				{
 					System.out.println("Enter Hour Auction to Start(0-23): ");
@@ -220,7 +223,8 @@ public class NonProfit
 					String editday = month + "/" + day + "/" + year + " "
 							+ hour + ":" + minute + ":" + second;
 					Date newday = new Date(editday);
-					a.setAuctionStart(newday);
+					c = new CalendarAuctionCentral();
+					c.editAuctionDate(a, newday);
 					System.out.println("Done editing");
 					new NonProfit(u);
 				} else
@@ -232,7 +236,8 @@ public class NonProfit
 			case 2:
 				System.out.println("Enter the Duration(Hours): ");
 				int duration = reader.nextInt();
-				a.setAuctionDuration(duration);
+				c = new CalendarAuctionCentral();
+				c.editAuctionDuration(a, duration);
 				new NonProfit(u);
 				break;
 		}
@@ -250,6 +255,7 @@ public class NonProfit
 	public void addItemInfo(User u, Auction a) throws ParseException,
 			IOException
 	{
+		System.out.println(a.getAuctionName());
 		System.out.println("Name of item :");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
@@ -257,12 +263,13 @@ public class NonProfit
 		System.out.println("Starting bid of item :");
 		double startBid = reader.nextDouble();
 		System.out.println("More Information about item :");
+		reader = new Scanner(System.in);
 		String moreInfo = reader.nextLine();
-		if(!moreInfo.isEmpty()) {
-			Item i = new Item(a.getAuctionName(), startBid, itemName, moreInfo);
-			Inventory in = new Inventory();
-			in.addItem(i);
-			System.out.println("Item can now be bidded on");
+		if(!moreInfo.isEmpty()){
+		Item i = new Item(a.getAuctionName(), startBid, itemName, moreInfo);
+		Inventory in = new Inventory();
+		in.addItem(i);
+		System.out.println("Item can now be bidded on");
 		}
 	}
 	
@@ -291,6 +298,7 @@ public class NonProfit
 		{
 			case 1:
 				System.out.println("Enter New name :");
+				reader = new Scanner(System.in);
 				String newName = reader.nextLine();
 				i = new Inventory();
 				i.editItemName(itemID, newName);
@@ -303,29 +311,12 @@ public class NonProfit
 				break;
 			case 3:
 				System.out.println("Enter New Info :");
+				reader = new Scanner(System.in);
 				String newInfo = reader.nextLine();
 				i = new Inventory();
 				i.editItemInfo(itemID, newInfo);
 				break;
 		}
-	}
-	
-	/**
-	 * Gets the Name for the auction.
-	 * 
-	 * @param u
-	 * @param d
-	 * @return
-	 * @throws ParseException
-	 */
-	private String getAuctionName(User u, Date d) throws ParseException
-	{
-		String[] monthName =
-		{ "January", "February", "March", "April", "May", "June", "July",
-				"August", "September", "October", "November", "December" };
-		String date = monthName[d.getMonth() - 1] + "-" + d.getDay() + "-"
-				+ d.getYear();
-		return u.userName + "-" + date;
 	}
 	
 	/**
