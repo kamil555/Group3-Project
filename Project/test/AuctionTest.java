@@ -26,6 +26,7 @@ public class AuctionTest {
 		Date expectedAuction = new Date("11/20/2015 13:0:0");
 
 		assertTrue(expectedAuction.toString().equals(myAuction.getAuctionEnd().toString()));
+		assertEquals("NPName1-November-20-2015", (myAuction.getAuctionName()));
 	}
 	
 	@Test

@@ -133,7 +133,7 @@ public class CalendarAuctionCentralTest {
 	 * testing
 	 */
 	@Test
-	public void atMaxAuctions7day() throws ParseException, IOException {
+	public void testAtMaxAuctions7day() throws ParseException, IOException {
 		Date req1 = new Date("01/23/2015 16:00:00");
 		Date req2 = new Date("01/23/2015 20:00:00");
 		assertFalse(myCalendar.atMaxAuctions7day(req1));

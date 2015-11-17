@@ -1,0 +1,2 @@
+GAB,Nonprofit
+GABBID,Bidder

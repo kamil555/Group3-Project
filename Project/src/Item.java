@@ -86,7 +86,7 @@ public class Item
 	private int createID()
 	{		
 		Inventory in = new Inventory();
-		return in.getSize() + 1;
+		return in.getSize();
 	}
 	
 }

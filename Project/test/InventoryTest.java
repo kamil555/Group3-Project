@@ -116,7 +116,7 @@ public class InventoryTest {
 	
 
 	@Test
-	public void testEditItemInfoBid() throws IOException {
+	public void testEditItemInfo() throws IOException {
 		myInventory4 = new Inventory();
 
 		myItem1 = new Item("Auction1Name", 5.00, "Item1", "Description of item1");			

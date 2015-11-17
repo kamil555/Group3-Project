@@ -31,7 +31,7 @@ public class InventoryGetItemFromListTest {
 	}
 
 	@Test
-	public void test() {
+	public void testGetItemFromList() {
 		// testing the method returns the correct item
 		assertEquals(myItem3, myInventory.getItemFromList(3));
 		
