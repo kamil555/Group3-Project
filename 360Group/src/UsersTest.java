@@ -33,8 +33,7 @@ public class UsersTest
 	@Test
 	public void testCreateUser() throws IOException, ParseException
 	{
-		u.createUser("bob", "Nonprofit");
-		assertTrue(u.login("bob"));
+		assertTrue(u.createUser("bob", "Nonprofit"));
 	}
 	
 	/**
@@ -46,7 +45,7 @@ public class UsersTest
 	@Test
 	public void testLogin() throws IOException, ParseException
 	{
-		assertTrue(u.login("Stepan"));
+		assertTrue(u.login("Stepanb"));
 	}
 	
 }

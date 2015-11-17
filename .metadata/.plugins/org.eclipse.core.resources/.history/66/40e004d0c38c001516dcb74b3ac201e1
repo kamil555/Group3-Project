@@ -1,0 +1,55 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * 
+ */
+
+/**
+ * @author Stepas
+ *
+ */
+public class BidderTest {
+
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	/**
+	 * Test method for {@link Bidder#Bidder(User)}.
+	 */
+	@Test
+	public void testBidder() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Bidder#viewItem(User, Item)}.
+	 */
+	@Test
+	public void testViewItem() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Bidder#editBid(User, Item, double)}.
+	 */
+	@Test
+	public void testEditBid() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Bidder#viewOpenAuctions(User)}.
+	 */
+	@Test
+	public void testViewOpenAuctions() {
+		fail("Not yet implemented");
+	}
+
+}

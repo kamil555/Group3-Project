@@ -5452,3 +5452,385 @@ org.eclipse.team.svn.core.operation.UnreportableException: 0x0000000b: Project '
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+!SESSION 2015-11-16 15:00:27.305 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:01:29.899
+!MESSAGE Could not find element with id 'app.base'
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:01:29.952
+!MESSAGE Could not find element with id 'app.base.command'
+
+!ENTRY org.eclipse.ui 2 0 2015-11-16 15:01:30.472
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-11-16 15:01:30.472
+!MESSAGE Cannot bind to an undefined command: plug-in='org.eclipse.ui.tests', id='org.eclipse.ui.tests.TestCommandId'
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-11-16 15:01:30.472
+!MESSAGE Cannot bind to an undefined command: plug-in='org.eclipse.ui.tests', id='org.eclipse.ui.tests.TestCommandId'
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.705
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.714
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.722
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.731
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.739
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.746
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.754
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.762
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:01:30.769
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:01:30.777
+!MESSAGE Could not find element with id 'app.base'
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:01:30.785
+!MESSAGE Could not find element with id 'app.base.command'
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:01:30.793
+!MESSAGE Could not find element with id 'fragment.contributedWindow'
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.319
+!MESSAGE Invalid activity: missing a translatable name (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.323
+!MESSAGE Invalid activity: missing a unique identifier (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.326
+!MESSAGE Invalid category description: missing a translatable name (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.330
+!MESSAGE Invalid category description: has no ID (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.334
+!MESSAGE Invalid activity pattern binding: missing the pattern to be bound (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.337
+!MESSAGE Invalid activity requirement binding: missing ID of the required activity (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:01:31.340
+!MESSAGE Invalid category activity binding: missing the ID of the activity to bind (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 2 0 2015-11-16 15:01:31.389
+!MESSAGE Expression activity cannot have requirements (id: org.eclipse.ui.tests.filter4.enabled)
+
+!ENTRY org.eclipse.ui 2 0 2015-11-16 15:01:31.392
+!MESSAGE Expression activity cannot be required (id: org.eclipse.ui.tests.filter7.enabled)
+
+!ENTRY org.eclipse.ui 2 2 2015-11-16 15:01:33.742
+!MESSAGE Could not parse value for theme color badColor3
+!STACK 0
+org.eclipse.jface.resource.DataFormatException: For input string: "1x"
+	at org.eclipse.jface.resource.StringConverter.asRGB(StringConverter.java:563)
+	at org.eclipse.ui.themes.ColorUtil.getColorValue(ColorUtil.java:175)
+	at org.eclipse.ui.internal.themes.ColorDefinition.getValue(ColorDefinition.java:157)
+	at org.eclipse.ui.internal.themes.ThemeElementHelper.installColor(ThemeElementHelper.java:284)
+	at org.eclipse.ui.internal.themes.ThemeElementHelper.populateRegistry(ThemeElementHelper.java:172)
+	at org.eclipse.ui.internal.Workbench$28.runWithException(Workbench.java:1668)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4145)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3762)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2686)
+	at org.eclipse.ui.internal.Workbench.access$7(Workbench.java:2594)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:608)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-11-16 15:01:56.931
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Stepas'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface 2 0 2015-11-16 15:21:18.858
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2015-11-16 15:21:18.859
+!MESSAGE A conflict occurred for CTRL+5 K:
+Binding(CTRL+5 K,
+	ParameterizedCommand(Command(org.eclipse.ui.tests.keyModel.conflict1,Conflict1,
+		,
+		Category(org.eclipse.ui.tests.category.keyModel,Key Model,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7540aa55,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+Binding(CTRL+5 K,
+	ParameterizedCommand(Command(org.eclipse.ui.tests.keyModel.conflict2,Conflict2,
+		,
+		Category(org.eclipse.ui.tests.category.keyModel,Key Model,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@faa592b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+Binding(CTRL+5 K,
+	ParameterizedCommand(Command(org.eclipse.ui.tests.keyModel.conflict3,Conflict3,
+		,
+		Category(org.eclipse.ui.tests.category.keyModel,Key Model,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@49e3bd37,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2015-11-16 15:21:23.663
+!MESSAGE Invalid property category path: Test Category (bundle: org.eclipse.ui.tests, propertyPage: org.eclipse.ui.tests.and)
+
+!ENTRY org.eclipse.ui 2 2 2015-11-16 15:21:23.744
+!MESSAGE Invalid property category path: Test Category (bundle: org.eclipse.ui.tests, propertyPage: org.eclipse.ui.tests.or)
+!SESSION 2015-11-16 15:26:14.795 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_65
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:36:29.163
+!MESSAGE Could not find element with id 'app.base'
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:36:29.226
+!MESSAGE Could not find element with id 'app.base.command'
+
+!ENTRY org.eclipse.ui 2 0 2015-11-16 15:36:29.839
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-11-16 15:36:29.839
+!MESSAGE Cannot bind to an undefined command: plug-in='org.eclipse.ui.tests', id='org.eclipse.ui.tests.TestCommandId'
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-11-16 15:36:29.839
+!MESSAGE Cannot bind to an undefined command: plug-in='org.eclipse.ui.tests', id='org.eclipse.ui.tests.TestCommandId'
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.104
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.120
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.120
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.136
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.136
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.136
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.151
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.151
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 1 0 2015-11-16 15:36:30.167
+!MESSAGE Nothing to merge for "platform:/plugin/org.eclipse.e4.ui.tests/xmi/modelprocessor/ModelFragments.e4xmi"
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:36:30.167
+!MESSAGE Could not find element with id 'app.base'
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:36:30.182
+!MESSAGE Could not find element with id 'app.base.command'
+
+!ENTRY org.eclipse.e4.ui.workbench 2 0 2015-11-16 15:36:30.182
+!MESSAGE Could not find element with id 'fragment.contributedWindow'
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.636
+!MESSAGE Invalid activity: missing a translatable name (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.651
+!MESSAGE Invalid activity: missing a unique identifier (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.651
+!MESSAGE Invalid category description: missing a translatable name (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.651
+!MESSAGE Invalid category description: has no ID (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.667
+!MESSAGE Invalid activity pattern binding: missing the pattern to be bound (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.667
+!MESSAGE Invalid activity requirement binding: missing ID of the required activity (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 4 4 2015-11-16 15:36:30.667
+!MESSAGE Invalid category activity binding: missing the ID of the activity to bind (contributed by 'org.eclipse.ui.tests')
+
+!ENTRY org.eclipse.ui 2 0 2015-11-16 15:36:30.698
+!MESSAGE Expression activity cannot have requirements (id: org.eclipse.ui.tests.filter4.enabled)
+
+!ENTRY org.eclipse.ui 2 0 2015-11-16 15:36:30.698
+!MESSAGE Expression activity cannot be required (id: org.eclipse.ui.tests.filter7.enabled)
+
+!ENTRY org.eclipse.ui 2 2 2015-11-16 15:36:32.698
+!MESSAGE Could not parse value for theme color badColor3
+!STACK 0
+org.eclipse.jface.resource.DataFormatException: For input string: "1x"
+	at org.eclipse.jface.resource.StringConverter.asRGB(StringConverter.java:563)
+	at org.eclipse.ui.themes.ColorUtil.getColorValue(ColorUtil.java:175)
+	at org.eclipse.ui.internal.themes.ColorDefinition.getValue(ColorDefinition.java:157)
+	at org.eclipse.ui.internal.themes.ThemeElementHelper.installColor(ThemeElementHelper.java:284)
+	at org.eclipse.ui.internal.themes.ThemeElementHelper.populateRegistry(ThemeElementHelper.java:172)
+	at org.eclipse.ui.internal.Workbench$28.runWithException(Workbench.java:1668)
+	at org.eclipse.ui.internal.StartupThreading$StartupRunnable.run(StartupThreading.java:31)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4145)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3762)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:2686)
+	at org.eclipse.ui.internal.Workbench.access$7(Workbench.java:2594)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:608)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-11-16 15:36:53.176
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Stepas'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface 2 0 2015-11-16 16:32:25.952
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2015-11-16 16:32:25.952
+!MESSAGE A conflict occurred for CTRL+5 K:
+Binding(CTRL+5 K,
+	ParameterizedCommand(Command(org.eclipse.ui.tests.keyModel.conflict1,Conflict1,
+		,
+		Category(org.eclipse.ui.tests.category.keyModel,Key Model,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@164eca2,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+Binding(CTRL+5 K,
+	ParameterizedCommand(Command(org.eclipse.ui.tests.keyModel.conflict2,Conflict2,
+		,
+		Category(org.eclipse.ui.tests.category.keyModel,Key Model,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@10ec7492,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+Binding(CTRL+5 K,
+	ParameterizedCommand(Command(org.eclipse.ui.tests.keyModel.conflict3,Conflict3,
+		,
+		Category(org.eclipse.ui.tests.category.keyModel,Key Model,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@cb3fd69,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2015-11-16 16:36:21.538
+!MESSAGE Invalid property category path: Test Category (bundle: org.eclipse.ui.tests, propertyPage: org.eclipse.ui.tests.and)
+
+!ENTRY org.eclipse.ui 2 2 2015-11-16 16:36:21.554
+!MESSAGE Invalid property category path: Test Category (bundle: org.eclipse.ui.tests, propertyPage: org.eclipse.ui.tests.or)
+
+!ENTRY org.eclipse.team.svn.core.svnnature 4 0 2015-11-16 18:14:18.335
+!MESSAGE SVN: 'Menu enablement calculation' operation finished with error
+!SUBENTRY 1 org.eclipse.team.svn.core.svnnature 4 0 2015-11-16 18:14:18.335
+!MESSAGE SVN: 'Menu enablement calculation' operation finished with error: 0x0000000b: Project '360Group' is connected not to Subversive provider but to another one: 'org.eclipse.egit.core.GitProvider'.
+!STACK 0
+org.eclipse.team.svn.core.operation.UnreportableException: 0x0000000b: Project '360Group' is connected not to Subversive provider but to another one: 'org.eclipse.egit.core.GitProvider'.
+	at org.eclipse.team.svn.core.svnstorage.SVNRemoteStorage.getConnectedProjectInformation(SVNRemoteStorage.java:608)
+	at org.eclipse.team.svn.core.svnstorage.SVNRemoteStorage.getRepositoryLocation(SVNRemoteStorage.java:556)
+	at org.eclipse.team.svn.core.SVNTeamProvider.requiresUpgrade(SVNTeamProvider.java:260)
+	at org.eclipse.team.svn.ui.action.local.management.UpgradeProjectsAction.isEnabled(UpgradeProjectsAction.java:54)
+	at org.eclipse.team.internal.ui.actions.TeamAction.setActionEnablement(TeamAction.java:313)
+	at org.eclipse.team.internal.ui.actions.TeamAction.selectionChanged(TeamAction.java:298)
+	at org.eclipse.team.svn.ui.action.AbstractSVNTeamAction.selectionChanged(AbstractSVNTeamAction.java:151)
+	at org.eclipse.ui.internal.PluginAction.refreshEnablement(PluginAction.java:206)
+	at org.eclipse.ui.internal.PluginAction.selectionChanged(PluginAction.java:277)
+	at org.eclipse.ui.internal.ObjectActionContributor$1.run(ObjectActionContributor.java:157)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.ObjectActionContributor.contributeObjectActions(ObjectActionContributor.java:160)
+	at org.eclipse.ui.internal.ObjectActionContributorManager.contributeObjectActions(ObjectActionContributorManager.java:97)
+	at org.eclipse.ui.internal.PopupMenuExtender.addObjectActions(PopupMenuExtender.java:325)
+	at org.eclipse.ui.internal.PopupMenuExtender.menuAboutToShow(PopupMenuExtender.java:399)
+	at org.eclipse.jface.action.MenuManager.fireAboutToShow(MenuManager.java:343)
+	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:475)
+	at org.eclipse.jface.action.MenuManager.access$1(MenuManager.java:470)
+	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:500)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:255)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1062)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:4964)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4640)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1627)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4977)
+	at org.eclipse.swt.internal.win32.OS.TrackPopupMenu(Native Method)
+	at org.eclipse.swt.widgets.Menu._setVisible(Menu.java:257)
+	at org.eclipse.swt.widgets.Display.runPopups(Display.java:4211)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3753)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1113)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:997)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:140)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:611)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:567)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:124)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:354)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:181)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)

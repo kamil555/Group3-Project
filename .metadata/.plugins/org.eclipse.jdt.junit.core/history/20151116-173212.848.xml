@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BidderTest (1)" project="360Group" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="BidderTest" time="13.239">
+    <testcase name="testBidder" classname="BidderTest" time="13.239"/>
+    <testcase name="testViewOpenAuctions" classname="BidderTest" time="0.0"/>
+    <testcase name="testViewItem" classname="BidderTest" time="0.0"/>
+    <testcase name="testEditBid" classname="BidderTest" time="0.0"/>
+  </testsuite>
+</testrun>

@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -14,17 +15,19 @@ public class AuctionCentralEmployee
 	 * The Main menu for the AuctionCentral Employee.
 	 * 
 	 * @throws ParseException
+	 * @throws IOException 
 	 * 
 	 */
-	public AuctionCentralEmployee(User u) throws ParseException
+	public AuctionCentralEmployee(User u) throws ParseException, IOException
 	{
 		System.out.println("Employee, " + u.userName);
 		System.out.println("Press 1 to view calendar");
 		System.out.println("Press 2 to view Auction Details");
+		System.out.println("Press 3 log out");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while (input != AUCTIONS && input != CALENDAR)
+		while (input != AUCTIONS && input != CALENDAR && input != 3)
 		{
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
@@ -41,6 +44,8 @@ public class AuctionCentralEmployee
 			case 2:
 				viewAuctionDetails(u);
 				break;
+			case 3:
+				new Users();
 		}
 		
 	}
@@ -50,8 +55,9 @@ public class AuctionCentralEmployee
 	 * 
 	 * @param u
 	 * @throws ParseException
+	 * @throws IOException 
 	 */
-	public void viewAuctionDetails(User u) throws ParseException
+	public void viewAuctionDetails(User u) throws ParseException, IOException
 	{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		System.out.println("Select Auction(Number) :");
@@ -83,8 +89,9 @@ public class AuctionCentralEmployee
 	 * @param month
 	 * @param year
 	 * @throws ParseException
+	 * @throws IOException 
 	 */
-	public void viewCalendar(User u, int month, int year) throws ParseException
+	public void viewCalendar(User u, int month, int year) throws ParseException, IOException
 	{
 		CalendarAuctionCentral c = new CalendarAuctionCentral();
 		c.printCalendarMonthly(month, year);

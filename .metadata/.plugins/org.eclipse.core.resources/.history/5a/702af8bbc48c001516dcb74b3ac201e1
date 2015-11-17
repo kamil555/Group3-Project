@@ -1,0 +1,68 @@
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.text.ParseException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * 
+ */
+
+/**
+ * @author Stepas
+ *
+ */
+public class BidderTest {
+	
+	User u;
+	Bidder b;
+	Item i;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		u = new User("Stepan","Bidder");
+	}
+
+	/**
+	 * Test method for {@link Bidder#Bidder(User)}.
+	 * @throws ParseException 
+	 * @throws IOException 
+	 */
+	@Test
+	public void testBidder() throws IOException, ParseException {
+		b = new Bidder(u);
+		assertNotNull(b);
+		assertNotNull(u);
+		assertEquals("Stepan", u.userName);
+		assertEquals("Bidder",u.user);
+	}
+
+	/**
+	 * Test method for {@link Bidder#viewItem(User, Item)}.
+	 */
+	@Test
+	public void testViewItem() {
+		
+	}
+
+	/**
+	 * Test method for {@link Bidder#editBid(User, Item, double)}.
+	 */
+	@Test
+	public void testEditBid() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Bidder#viewOpenAuctions(User)}.
+	 */
+	@Test
+	public void testViewOpenAuctions() {
+		fail("Not yet implemented");
+	}
+
+}

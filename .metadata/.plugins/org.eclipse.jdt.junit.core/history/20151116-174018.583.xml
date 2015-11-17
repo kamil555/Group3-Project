@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UsersTest" project="360Group" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="UsersTest" time="10.811">
+    <testcase name="testLogin" classname="UsersTest" time="4.366"/>
+    <testcase name="testCreateUser" classname="UsersTest" time="6.445"/>
+  </testsuite>
+</testrun>

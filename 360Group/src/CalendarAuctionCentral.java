@@ -122,7 +122,7 @@ public class CalendarAuctionCentral
 		if (checkRequestedAuction(reqAuction))
 		{
 			addAuction(this.auctionList, reqAuction, "auctionList.txt");
-			//futureAuctionList.add(reqAuction);
+			futureAuctionList.add(reqAuction);
 			futureAuctions += 1;
 		}
 	}

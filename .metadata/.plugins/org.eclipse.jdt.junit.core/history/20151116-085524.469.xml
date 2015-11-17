@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="BidderTest" project="Project" tests="4" started="4" failures="0" errors="0" ignored="0">
-  <testsuite name="BidderTest" time="0.015">
-    <testcase name="testBidder" classname="BidderTest" time="0.015"/>
-    <testcase name="testViewOpenAuctions" classname="BidderTest" time="0.0"/>
-    <testcase name="testViewItem" classname="BidderTest" time="0.0"/>
-    <testcase name="testEditBid" classname="BidderTest" time="0.0"/>
-  </testsuite>
-</testrun>
