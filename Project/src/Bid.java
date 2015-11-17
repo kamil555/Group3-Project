@@ -1,36 +1,78 @@
-
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Bid {
-//   private int bidCount;
-
-    @Override
+	
+	/**
+	 * toString for print out
+	 * 
+	 */
+	@Override
 	public String toString() {
-		return "Bid [bidName=" + bidName + ", bidAmount=" + bidAmount + "]";
+		return userName + "," + itemID + "," + bidAmount ;
 	}
 
-	private String bidName;
+	private String userName;
+	private int itemID;
 	private double bidAmount;
-//  public Bid next; 
-  
-    public double getBidAmount() {
+
+	
+	/**
+	 * getItemID
+	 * @return item's ID
+	 */
+	public int getItemID() {
+		return itemID;
+	}
+	/**
+	 * 
+	 * @param itemID set Item ID
+	 */
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
+	}
+	/**
+	 * 
+	 * @return bidAmount
+	 */
+	public double getBidAmount() {
 		return bidAmount;
 	}
-
+	/**
+	 * 
+	 * @param bidAmount how much money that bider want to bid
+	 */
 	public void setBidAmount(double bidAmount) {
 		this.bidAmount = bidAmount;
 	}
-
-	public String getBidName() {
-		return bidName;
+	
+	/**
+	 * 
+	 * @return user name
+	 */
+	public String getuserName() {
+		return userName;
 	}
-
-	public void setBidName(String bidName) {
-		this.bidName = bidName;
+	/**
+	 * 
+	 * @param userName user's login name
+	 */
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
+	/**
+	 * 
+	 * @param userName user's login name
+	 * @param itemID	item's id
+	 * @param bidAmount	bid money
+	 */
+	public Bid(String userName,  int itemID, double bidAmount) {
+		this.bidAmount = bidAmount;
+		this.userName = userName;
+		this.itemID = itemID;
 
-    public Bid(String bidName, double bidAmount) {
-    	super();
-    	this.bidAmount = bidAmount;
-    	this.bidName = bidName;
-    }
+	}
 }

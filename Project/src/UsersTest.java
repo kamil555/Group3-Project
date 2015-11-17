@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,19 +24,22 @@ public class UsersTest {
 	/**
 	 * Test method for createUser.
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
 	@Test
-	public void testCreateUser() throws IOException {
-		assertTrue(u.createUser("bob", "jim", "Bidder"));
+	public void testCreateUser() throws IOException, ParseException {
+		u.createUser("bob", "Nonprofit");
+		assertTrue(u.Login("bob"));
 	}
 
 	/**
 	 * Test method for Login.
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
 	@Test
-	public void testLogin() throws IOException {
-		assertTrue(u.Login("Stepan","Adespya"));
+	public void testLogin() throws IOException, ParseException {
+		assertTrue(u.Login("Stepan"));
 	}
 
 }

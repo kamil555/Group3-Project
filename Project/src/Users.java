@@ -4,6 +4,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,63 +18,72 @@ import java.util.Scanner;
 class User{
 	//UserName of person
 	protected String username;
-	//Password of person
-	protected String password;
 	//Whether a person is a bidder,employee, or nonprofit
 	protected String user;
 	//If nonprofit, Organization name
 	protected String organization;
-	
+
 	/**
 	 * Saves a User.
 	 * @param username
-	 * @param pass
 	 * @param user
 	 */
-	public User(String username,String pass,String user){
+	public User(String username,String user){
 		this.username = username;
-		this.password = pass;
 		this.user = user;
 	}
+
+	@Override
+	/**
+	 * overrides the toString method
+	 */
+	public String toString() {
+		return username+","+user;
+	}
+
+
 
 }
 
 public class Users{
 	//Keeps track of all Users
 	private ArrayList<User> users;
-	private int LOGIN = 1;
-	private int CREATE = 2;
 	private int BIDDER = 1;
 	private int EMPLOYEE = 2;
 	private int NONPROFIT = 3;
-	
-	public Users() throws IOException{
+
+	/**
+	 * Users constructor, allows user to login or create account.
+	 * @throws IOException
+	 * @throws ParseException 
+	 */
+	public Users() throws IOException, ParseException{
 		users = new ArrayList<User>();
-		readFileToUser("C:\\Users\\Stepas\\Documents\\TCSS-360\\Project\\src\\Logs.txt");
+		readFileToUsers("Logs.txt");
+		readFileToOrg("NonProfit.txt");
 		System.out.println("Hello Welcome to AuctionCentral");
-		System.out.println("To Login press 1, To Create User press 2");
+		System.out.println("To Login press 1, To Create User press 2, To Exit press 3");
 		@SuppressWarnings("resource")
 		Scanner reader = new Scanner(System.in);
 		int input = reader.nextInt();
-		while(input != LOGIN && input != CREATE){
+		while(input != 1 && input != 2 && input != 3){
 			System.out.println("Sorry wrong input, Please try again");
 			input = reader.nextInt();
 		}
-		if(input == LOGIN){
+		String username = null;
+		switch(input){
+		case 1:
 			System.out.println("Enter Username :");
-			String username = reader.next();
-			System.out.println("Enter Password :");
-			String password = reader.next();
-			Login(username,password);
-		}else if(input == CREATE){
+			username = reader.next();
+			Login(username);
+			break;
+		case 2:
 			System.out.println("Create Username :");
-			String username = reader.next();
+			username = reader.next();
 			while(isOneUserName(username)){
-				System.out.println("Please enter another Username: ");
+				System.out.println("This Username is taken, please enter another Username: ");
 				username = reader.next();
 			}
-			System.out.println("Create Password :");
-			String password = reader.next();
 			System.out.println("Press 1 if you are an Bidder, 2 if you are an AuctionCentral Employee, 3 if you are an Nonprofit Organization");
 			int inputUser = reader.nextInt();
 			while(inputUser != BIDDER && inputUser != EMPLOYEE && inputUser != NONPROFIT){
@@ -79,14 +91,18 @@ public class Users{
 				inputUser = reader.nextInt();
 			}
 			if(inputUser == BIDDER){
-				createUser(username,password,"Bidder");
+				createUser(username,"Bidder");
 			}else if(inputUser == EMPLOYEE){
-				createUser(username,password,"ActionCentral Employee");
+				createUser(username,"ActionCentral Employee");
 			}else if(inputUser == NONPROFIT){
-				createUser(username,password,"Nonprofit");
+				createUser(username,"Nonprofit");
 			}
+			break;
+		case 3:
+			System.exit(0);
+			break;
 		}
-		
+
 	}
 	/**
 	 * Creates a User.
@@ -94,9 +110,10 @@ public class Users{
 	 * @param pass
 	 * @param user
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
-	public boolean createUser(String username,String password,String user) throws IOException{
-		User per = new User(username,password,user);
+	public boolean createUser(String username,String user) throws IOException, ParseException{
+		User per = new User(username,user);
 		if(per.user.equalsIgnoreCase("nonprofit")){
 			System.out.println("Enter Nonprofit Organization: ");
 			@SuppressWarnings("resource")
@@ -106,37 +123,40 @@ public class Users{
 				System.out.println("Please enter another organization name :");
 				np = reader.nextLine();
 			}
-		
+			per.organization = np;
+			String org = username+","+np;
+			writeToFile("NonProfit.txt",org);
+
+
 		}
-		String contents = ""+username+","+password+","+user;
-		writeToFile("C:\\Users\\Stepas\\Documents\\TCSS-360\\Project\\src\\Logs.txt",contents);
+		String contents = ""+username+","+user;
+		writeToFile("Logs.txt",contents);
 		users.add(per);
 		System.out.println("done");
 		new Users();
 		return true;
 	}
-	
+
 	/**
 	 * Login for users.
 	 * @param username
 	 * @param password
 	 * @return
 	 * @throws IOException 
+	 * @throws ParseException 
 	 */
-	public boolean Login(String username, String password) throws IOException{
+	@SuppressWarnings("unused")
+	public boolean Login(String username) throws IOException, ParseException{
 		for(int i = 0; i < users.size(); i++){
-			if(users.get(i).username.endsWith(username) && users.get(i).password.endsWith(password)){
+			if(users.get(i).username.endsWith(username)){
 				if(users.get(i).user.equalsIgnoreCase("Bidder")){
-					System.out.println("Bidder");
-					//Bidder b = new Bidder();
+					Bidder b = new Bidder(users.get(i));
 					break;
 				}else if(users.get(i).user.equalsIgnoreCase("AuctionCentral Employee")){
-					System.out.println("AuctionCentral Employee");
-					//ActionCentralEmployee a = new ActionCentralEmployee();
+					AuctionCentralEmployee a = new AuctionCentralEmployee(users.get(i));
 					break;
 				}else if(users.get(i).user.equalsIgnoreCase("nonprofit")){
-					System.out.println("Nonprofit");
-					//NonProfit p = new NonProfit();
+					NonProfit p = new NonProfit(users.get(i));
 					break;
 				}
 			}
@@ -146,10 +166,10 @@ public class Users{
 			}
 		}
 		return true;
-		
-		
+
+
 	}
-	
+
 	/**
 	 * Checks to see if anyone else has the same organization name. BR #7
 	 * @param org (Organization name)
@@ -157,14 +177,16 @@ public class Users{
 	 */
 	private boolean isOnePerOrg(String org){
 		for(int i = 0; i < users.size(); i++){
-			if(users.get(i).organization.equalsIgnoreCase(org)){
-				System.out.println("Sorry only one person can represent the Nonprofit Organization");
-				return true;
+			if(users.get(i).organization != null){
+				if(users.get(i).organization.equalsIgnoreCase(org)){
+					System.out.println("Sorry only one person can represent the Nonprofit Organization");
+					return true;
+				}
 			}
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Checks if there is the same username
 	 * @param username
@@ -179,28 +201,25 @@ public class Users{
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Reads the file selected to User arraylist
+	 * Reads the file selected to Users arraylist
 	 * @param fileName
 	 */
-	private void readFileToUser(String fileName){
+	private void readFileToUsers(String fileName){
 		String line = null;
 		try {
 			// FileReader reads text files in the default encoding.
-			FileReader fileReader = 
-					new FileReader(fileName);
+			FileReader fileReader = new FileReader(fileName);
 
 			// Always wrap FileReader in BufferedReader.
-			BufferedReader bufferedReader = 
-					new BufferedReader(fileReader);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 			while((line = bufferedReader.readLine()) != null) {
-				String[] split = line.split(",", 3);
+				String[] split = line.split(",", 2);
 				String username = split[0];
-				String password = split[1];
-				String user = split[2];
-				users.add(new User(username,password,user));
+				String user = split[1];
+				users.add(new User(username,user));
 
 			}   
 			bufferedReader.close();         
@@ -212,7 +231,41 @@ public class Users{
 			System.out.println("Error reading file '" + fileName + "'");                  
 		}
 	}
-	
+
+	/**
+	 * Reads the file for nonprofit organizations
+	 * @param fileName
+	 */
+	private void readFileToOrg(String fileName){
+		String line = null;
+		try {
+			// FileReader reads text files in the default encoding.
+			FileReader fileReader = new FileReader(fileName);
+
+			// Always wrap FileReader in BufferedReader.
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+			while((line = bufferedReader.readLine()) != null) {
+				String[] split = line.split(",", 2);
+				String username = split[0];
+				String orgname = split[1];
+				for(int i = 0;i<users.size(); i++){
+					if(users.get(i).username.equalsIgnoreCase(username)){
+						users.get(i).organization = orgname;
+					}
+				}
+
+			}   
+			bufferedReader.close();         
+		}
+		catch(FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");                
+		}
+		catch(IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");                  
+		}
+	}
+
 	/**
 	 * Writes in the file chosen(use for logs)
 	 * @param fileName
@@ -222,7 +275,11 @@ public class Users{
 	private void writeToFile(String fileName,String contents) throws IOException{
 		FileWriter fw = new FileWriter(fileName,true);
 		PrintWriter pw = new PrintWriter(fw);
-		pw.write(contents+"\r\n");
+		if(Files.size(Paths.get(fileName)) == 0){
+			pw.write(contents);
+		}else{
+			pw.write("\n"+contents);
+		}
 		pw.close();
 	}
 }
