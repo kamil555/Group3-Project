@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Bid {
 
+<<<<<<< HEAD
 	@Override
 	public String toString() {
 		return userName + "," + itemID + "," + bidAmount ;
@@ -24,6 +25,29 @@ public class Bid {
 	}
 
 	public double getBidAmount() {
+=======
+ 
+
+	@Override
+	public String toString() {
+		return "Bid [userName=" + userName + ", itemID=" + itemID + ", bidAmount=" + bidAmount + "]";
+	}
+
+	private String userName;
+	private int itemID;
+	public int getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
+	}
+
+	private double bidAmount;
+ 
+  
+    public double getBidAmount() {
+>>>>>>> bid-inventory
 		return bidAmount;
 	}
 
@@ -39,10 +63,20 @@ public class Bid {
 		this.userName = userName;
 	}
 
+<<<<<<< HEAD
 	public Bid(String userName,  int itemID, double bidAmount) {
 		this.bidAmount = bidAmount;
 		this.userName = userName;
 		this.itemID = itemID;
 
 	}
+=======
+    public Bid(String userName, double bidAmount, int itemID) {
+    	super();
+    	this.bidAmount = bidAmount;
+    	this.userName = userName;
+    	this.itemID = itemID;
+    	
+    }
+>>>>>>> bid-inventory
 }

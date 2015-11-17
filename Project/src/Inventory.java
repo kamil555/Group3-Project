@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 
 public class Inventory {
+<<<<<<< HEAD
    ArrayList<Item> listofItems ;
    int size;
    
@@ -29,6 +30,9 @@ public class Inventory {
 		   }
 	   }
    }
+=======
+   ArrayList<Item> itemList = new ArrayList<Item>();
+>>>>>>> bid-inventory
     
     public void allItemsBidder(User u) throws IOException {
     	bidList b = new bidList();
