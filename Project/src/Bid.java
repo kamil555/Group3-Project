@@ -1,18 +1,29 @@
-
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Bid {
-//   private int bidCount;
 
-    @Override
+	@Override
 	public String toString() {
-		return "Bid [bidName=" + bidName + ", bidAmount=" + bidAmount + "]";
+		return userName + "," + itemID + "," + bidAmount ;
 	}
 
-	private String bidName;
+	private String userName;
+	private int itemID;
 	private double bidAmount;
-//  public Bid next; 
-  
-    public double getBidAmount() {
+
+	public int getItemID() {
+		return itemID;
+	}
+
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
+	}
+
+	public double getBidAmount() {
 		return bidAmount;
 	}
 
@@ -20,17 +31,18 @@ public class Bid {
 		this.bidAmount = bidAmount;
 	}
 
-	public String getBidName() {
-		return bidName;
+	public String getuserName() {
+		return userName;
 	}
 
-	public void setBidName(String bidName) {
-		this.bidName = bidName;
+	public void setuserName(String userName) {
+		this.userName = userName;
 	}
 
-    public Bid(String bidName, double bidAmount) {
-    	super();
-    	this.bidAmount = bidAmount;
-    	this.bidName = bidName;
-    }
+	public Bid(String userName,  int itemID, double bidAmount) {
+		this.bidAmount = bidAmount;
+		this.userName = userName;
+		this.itemID = itemID;
+
+	}
 }
