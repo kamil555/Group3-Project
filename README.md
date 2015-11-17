@@ -1,6 +1,6 @@
 # Group3-Project
 
-##Welcome to Group 2 Github
+##Welcome to Group Sno Github
 
 ### Group Members/Contact:
 - Mindy		mhuynhx3@uw.edu 
