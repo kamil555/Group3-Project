@@ -1,3 +1,5 @@
 STEPANB,Bidder
 STEPANACE,AuctionCentral Employee
 STEPANNO,Nonprofit
+NP1,Nonprofit
+NP2,Nonprofit

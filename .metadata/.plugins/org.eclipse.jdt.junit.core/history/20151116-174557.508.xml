@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AuctionCentralEmployeeTest (1)" project="360Group" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="AuctionCentralEmployeeTest" time="16.793">
+    <testcase name="testViewAuctionDetails" classname="AuctionCentralEmployeeTest" time="0.0"/>
+    <testcase name="testViewCalendar" classname="AuctionCentralEmployeeTest" time="0.0"/>
+    <testcase name="testAuctionCentralEmployee" classname="AuctionCentralEmployeeTest" time="16.793"/>
+  </testsuite>
+</testrun>

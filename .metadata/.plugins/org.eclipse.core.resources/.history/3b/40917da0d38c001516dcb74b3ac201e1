@@ -1,0 +1,178 @@
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.text.ParseException;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * 
+ */
+
+/**
+ * @author Stepas
+ *
+ */
+public class InventoryTest {
+
+	private static final double TOLERANCE = .0001;
+
+	private Inventory myInventory;
+	private Inventory myNewInventory;
+	private Item myItem1;
+	private Item myItem2;
+	private Item myItem3;
+	private Item myItem4;
+	private Item myItem5;
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		// setting up empty inventory list
+		myInventory = new Inventory();
+
+		myItem1 = new Item("Auction1Name", 5.00, "Item1", "Description of item1");		
+		myItem2 = new Item("Auction1Name", 5.00, "Item2", "Description of item2");
+		myItem3 = new Item("NPName2-November-22-2015", 5.00, "Item3", "Description of item3");		
+		myItem4 = new Item("NPName3-November-22-2015", 5.00, "Item4", "Description of item4");		
+		myItem5 = new Item("NPName1-November-22-2015", 5.00, "Item5", "Description of item5");
+	}
+
+	/**
+	 * Test method for {@link Inventory#Inventory()}.
+	 */
+	@Test
+	public void testInventory() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#getSize()}.
+	 */
+	@Test
+	public void testGetSize() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#addItem(Item)}.
+	 * @throws IOException 
+	 */
+	@Test
+	public void testAddItem() throws IOException {
+		// Testing that size reads zero and that array
+				// list is empty since size is set with the
+				// array list.
+				assertEquals(0, myInventory.getSize());
+				
+				// Testing size and array are updated.
+				myInventory.addItem(myItem1);
+				assertEquals(1, myInventory.getSize());
+
+				// Testing size updated again, and contents
+				// of the array are as expected.
+				myInventory.addItem(myItem2);
+				assertEquals(2, myInventory.getSize());
+				assertEquals(2, myInventory.listofItems.size());
+				for(int i = 0; i < myInventory.listofItems.size(); i++) {
+					assertEquals(i+1, myInventory.listofItems.get(i).itemID);
+					assertEquals("Auction1Name", myInventory.listofItems.get(i).auctionName);	
+					assertEquals(5.00, myInventory.listofItems.get(i).startBid, TOLERANCE);		
+				}
+				assertEquals("Item1", myInventory.listofItems.get(0).itemName);
+				assertEquals("Description of item1", myInventory.listofItems.get(0).itemInfo);
+				assertEquals("Item2", myInventory.listofItems.get(1).itemName);
+				assertEquals("Description of item2", myInventory.listofItems.get(1).itemInfo);
+				
+				// testing if new inventory will read the two auctions
+				// that were added from myInventory additions. This will
+				// show that they were written to "Inventory.txt" when added
+				// as well as that the constructor read the file.
+				myNewInventory = new Inventory();
+
+				assertEquals(2, myNewInventory.getSize());
+				assertEquals(2, myNewInventory.listofItems.size());
+				for(int i = 0; i < myNewInventory.listofItems.size(); i++) {
+					assertEquals(i+1, myNewInventory.listofItems.get(i).itemID);
+					assertEquals("Auction1Name", myNewInventory.listofItems.get(i).auctionName);	
+					assertEquals(5.00, myNewInventory.listofItems.get(i).startBid, TOLERANCE);		
+				}
+				assertEquals("Item1", myNewInventory.listofItems.get(0).itemName);
+				assertEquals("Description of item1", myNewInventory.listofItems.get(0).itemInfo);
+				assertEquals("Item2", myNewInventory.listofItems.get(1).itemName);
+				assertEquals("Description of item2", myNewInventory.listofItems.get(1).itemInfo);
+
+	}
+
+	/**
+	 * Test method for {@link Inventory#editItemName(int, java.lang.String)}.
+	 */
+	@Test
+	public void testEditItemName() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#editItemStartBid(int, double)}.
+	 */
+	@Test
+	public void testEditItemStartBid() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#editItemInfo(int, java.lang.String)}.
+	 */
+	@Test
+	public void testEditItemInfo() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#allItemsAuction(Auction)}.
+	 * @throws ParseException 
+	 */
+	@Test
+	public void testAllItemsAuction() throws ParseException {
+		Date testDate1 = new Date("11/22/2015 10:00:00");
+		Auction testAuction1 = new Auction("NPName1", testDate1, 2);
+		assertEquals(3, myInventory.allItemsAuction(testAuction1));
+		
+		Auction testAuction2 = new Auction("NPName2", testDate1, 2);
+		assertEquals(1, myInventory.allItemsAuction(testAuction2));
+		
+		Auction testAuction3 = new Auction("NPName3", testDate1, 2);
+		assertEquals(1, myInventory.allItemsAuction(testAuction3));
+		
+		// testing name not on list
+		Auction testAuction4 = new Auction("NPName4", testDate1, 2);
+		assertEquals(0, myInventory.allItemsAuction(testAuction4));
+	}
+
+	/**
+	 * Test method for {@link Inventory#allItemsBidder(User)}.
+	 */
+	@Test
+	public void testAllItemsBidder() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#viewAllitems()}.
+	 */
+	@Test
+	public void testViewAllitems() {
+		fail("Not yet implemented");
+	}
+
+	/**
+	 * Test method for {@link Inventory#getItemFromList(int)}.
+	 */
+	@Test
+	public void testGetItemFromList() {
+		fail("Not yet implemented");
+	}
+
+}
