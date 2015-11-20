@@ -14,14 +14,16 @@
 
 - [Task Matrix] (https://docs.google.com/spreadsheets/d/1790I5iSVjtcO8OrUP42T6TJ94nUbNQ3s4T1DAmxFzPs/edit?usp=sharing) 
 - [Minutes] (https://docs.google.com/document/d/13KUkFRiQcIauk9H_uunC0JyTtRwNZlopXoKSoTBF8iw/edit?usp=sharing)
+- [Github] (https://github.com/kamil555/Deliverable3.git)
 - [Black Jack CRC Card] (https://drive.google.com/open?id=0B3QEbY5BUiJHWTd2SVl5YkZaR2s)
  
 
 - [Check-in 1] (https://docs.google.com/document/d/1kAj8LQYXcw5yNoD9RhXg1B4XKfjA3qlP_bqjzLZpANk/edit)
 - [Check-in 2] (https://drive.google.com/open?id=0B1XbNLTU7bImMk84eUNnOHlrUWM)
+- [Check-in 3] (https://github.com/kamil555/Group3-Project/tree/master/Project/src)
 
 - [Deliverable 1] (https://drive.google.com/open?id=0B1XbNLTU7bImdXlyaWdZRjdxdnM)
-
+- [Deliverable 2] (https://docs.google.com/document/d/11lmmU4uiezWeux3UdHKV7ot8V9ctZ-dZmveBO10O8Lo/edit?usp=sharing)
 
 ## Group Rules:
  - The Facilitator of the week must update task matrix for each meetings
